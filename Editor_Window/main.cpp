@@ -4,6 +4,10 @@
 #include "framework.h"
 #include "Editor_Window.h"
 
+#include "..\\EngineStudy_Source\engineApplication.h"
+
+Application app;
+
 #define MAX_LOADSTRING 100
 
 // 전역 변수:
@@ -17,7 +21,7 @@ BOOL                InitInstance(HINSTANCE, int);
 LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
 INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
 
-int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
+int APIENTRY wWinMain(_In_ HINSTANCE hInstance, //프로그램 인스턴스 핸들
                      _In_opt_ HINSTANCE hPrevInstance,
                      _In_ LPWSTR    lpCmdLine,
                      _In_ int       nCmdShow)
@@ -26,6 +30,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     UNREFERENCED_PARAMETER(lpCmdLine);
 
     // TODO: 여기에 코드를 입력합니다.
+    app.test();
 
     // 전역 문자열을 초기화합니다.
     LoadStringW(hInstance, IDS_APP_TITLE, szTitle, MAX_LOADSTRING);
@@ -42,15 +47,35 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
     MSG msg;
 
-    // 기본 메시지 루프입니다:
-    while (GetMessage(&msg, nullptr, 0, 0))
+    while (true)
     {
-        if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
+        if (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE))
         {
-            TranslateMessage(&msg);
-            DispatchMessage(&msg);
+            if (msg.message == WM_QUIT)
+                break;
+
+            if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
+            {
+                TranslateMessage(&msg);
+                DispatchMessage(&msg);
+            }
+        }
+        else
+        {
+            //게임 로직 - 메세지가 없을 경우
         }
     }
+
+
+    // 기본 메시지 루프입니다:
+    //while (GetMessage(&msg, nullptr, 0, 0))
+    //{
+    //    if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
+    //    {
+    //        TranslateMessage(&msg);
+    //        DispatchMessage(&msg);
+    //    }
+    //}
 
     return (int) msg.wParam;
 }
@@ -98,7 +123,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    hInst = hInstance; // 인스턴스 핸들을 전역 변수에 저장합니다.
 
    HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
-      CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInstance, nullptr);
+      CW_USEDEFAULT, 0, 1600, 900, nullptr, nullptr, hInstance, nullptr);
 
    if (!hWnd)
    {
@@ -147,6 +172,37 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             PAINTSTRUCT ps;
             HDC hdc = BeginPaint(hWnd, &ps);
             // TODO: 여기에 hdc를 사용하는 그리기 코드를 추가합니다...
+            
+            //빨강 브러쉬 생성
+			HBRUSH brush = CreateSolidBrush(RGB(255, 0, 0));
+			//브러쉬 선택 및 이전 브러쉬(기본 - 하양) 저장
+			HBRUSH oldbrush = (HBRUSH)SelectObject(hdc, brush);
+
+			//선택한 브러쉬로 사각형 그리기
+			Rectangle(hdc, 100, 100, 200, 200);
+
+            //다시 하얀색으로 선택
+			SelectObject(hdc, oldbrush);
+            //매 프레임 마다 힙에 할당되는 파란 브러쉬 삭제
+			DeleteObject(brush);
+
+
+			//펜 생성(타입, 두께, 색상)
+			HPEN pen = CreatePen(PS_SOLID, 5, RGB(0, 0, 255));
+			HPEN oldpen = (HPEN)SelectObject(hdc, pen);
+            //파란펜으로 테두리 하얀 브러쉬로 원 그리기
+            Ellipse(hdc, 300, 300, 400, 400);
+
+			SelectObject(hdc, oldpen);
+			DeleteObject(pen);
+
+            //스톡 오브젝트 - 자주사용 되는 GDI 오브젝트를 미리 DC안에 만들어둔것
+			HBRUSH stockbrush = (HBRUSH)GetStockObject(GRAY_BRUSH);
+			HBRUSH oldb = (HBRUSH)SelectObject(hdc, stockbrush);
+
+			Rectangle(hdc, 500, 500, 600, 600);
+			SelectObject(hdc, oldb);
+
             EndPaint(hWnd, &ps);
         }
         break;

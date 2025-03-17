@@ -1,5 +1,6 @@
 #include "engineApplication.h"
 #include "jwInput.h"
+#include "jwTime.h"
 
 namespace jw
 {
@@ -18,6 +19,7 @@ namespace jw
 		mHwnd = hwnd;
 		mHdc = GetDC(hwnd);
 		Input::Initialize();
+		Time::Initialize();
 
 		mPlayer.Setposition(0.0f, 0.0f);
 	}
@@ -32,6 +34,7 @@ namespace jw
 	void Application::Update()
 	{
 		Input::Update();
+		Time::Update();
 
 		mPlayer.Update();
 	}
@@ -42,6 +45,8 @@ namespace jw
 
 	void Application::Render()
 	{
+		Time::Render(mHdc);
+
 		mPlayer.Render(mHdc);
 	}
 }

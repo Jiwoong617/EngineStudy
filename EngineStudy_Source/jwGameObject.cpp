@@ -1,5 +1,6 @@
 #include "jwGameObject.h"
 #include "jwInput.h"
+#include "jwTime.h"
 
 namespace jw
 {
@@ -14,27 +15,28 @@ namespace jw
 
 	void GameObject::Update()
 	{
-
+		const int speed = 100;
 		if (Input::GetKey(eKeyCode::A)) //0x8000 : 키가 눌려있을 때
 		{
-			mX -= 0.01f;
+			mX -= speed * Time::DeltaTime();
 		}
 
 		if (Input::GetKey(eKeyCode::D))
 		{
-			mX += 0.01f;
+			mX += speed * Time::DeltaTime();
 		}
 
 		if (Input::GetKey(eKeyCode::W))
 		{
-			mY -= 0.01f;
+			mY -= speed * Time::DeltaTime();
 		}
 
 		if (Input::GetKey(eKeyCode::S))
 		{
-			mY += 0.01f;
+			speed* Time::DeltaTime();
 		}
 	}
+
 	void GameObject::LateUpdate()
 	{
 	}

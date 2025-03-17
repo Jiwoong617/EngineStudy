@@ -37,6 +37,8 @@ namespace jw
 		static bool GetKeyUp(eKeyCode code) { return mKeys[(UINT)code].state == eKeyState::Up; }
 		static bool GetKey(eKeyCode code) { return mKeys[(UINT)code].state == eKeyState::Pressed; }
 
+	private:
+		static void CreateKeys();
 
 	private:
 		static std::vector<Key> mKeys; //정적 변수 선언

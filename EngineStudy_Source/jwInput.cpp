@@ -14,6 +14,11 @@ namespace jw
 
 	void Input::Initialize()
 	{
+		CreateKeys();
+	}
+
+	void Input::CreateKeys()
+	{
 		for (size_t i = 0; i < (UINT)eKeyCode::End; i++)
 		{
 			Key key = {};
@@ -24,6 +29,7 @@ namespace jw
 			mKeys.push_back(key);
 		}
 	}
+
 
 	void Input::Update()
 	{

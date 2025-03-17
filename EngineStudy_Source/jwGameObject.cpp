@@ -33,7 +33,7 @@ namespace jw
 
 		if (Input::GetKey(eKeyCode::S))
 		{
-			speed* Time::DeltaTime();
+			mY += speed* Time::DeltaTime();
 		}
 	}
 

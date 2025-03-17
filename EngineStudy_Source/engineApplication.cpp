@@ -1,4 +1,5 @@
 #include "engineApplication.h"
+#include "jwInput.h"
 
 namespace jw
 {
@@ -16,6 +17,7 @@ namespace jw
 	{
 		mHwnd = hwnd;
 		mHdc = GetDC(hwnd);
+		Input::Initialize();
 
 		mPlayer.Setposition(0.0f, 0.0f);
 	}
@@ -29,6 +31,8 @@ namespace jw
 
 	void Application::Update()
 	{
+		Input::Update();
+
 		mPlayer.Update();
 	}
 

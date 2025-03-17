@@ -1,7 +1,6 @@
 #pragma once
 #include "CommonInclude.h"
 
-
 namespace jw
 {
 	class GameObject

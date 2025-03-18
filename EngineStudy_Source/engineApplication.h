@@ -17,17 +17,26 @@ namespace jw
 		void LateUpdate();
 		void Render();
 
+	private:
+		void clearRenderTarget();
+		void copyRenderTarget(HDC source, HDC dest);
+		void adjustWindowRect(HWND hwnd, UINT width, UINT height);
+		void createBuffer(UINT width, UINT height);
+		void initializeETC();
 
 	private:
+		//메인 hwnd
 		HWND mHwnd;
 		HDC mHdc;
 
+		//백버퍼
 		HDC mBackHdc;
 		HBITMAP mBackBitmap;
 
+		//화면 크기
 		UINT mWidth;
 		UINT mHeight;
 
-		GameObject mPlayer;
+		//std::vector<GameObject*> mGameObjects;
 	};
 }

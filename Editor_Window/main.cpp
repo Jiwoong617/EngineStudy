@@ -5,6 +5,7 @@
 #include "Editor_Window.h"
 
 #include "..\\EngineStudy_Source\engineApplication.h"
+#include "..\\EngineStudy_Window\jwLoadScene.h"
 
 jw::Application application;
 
@@ -138,6 +139,9 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
    ShowWindow(hWnd, nCmdShow);
    UpdateWindow(hWnd);
+
+   //loadScene
+   jw::LoadScenes();
 
    return TRUE;
 }

@@ -13,7 +13,7 @@ namespace jw
 		void LateUpdate();
 		void Render(HDC hdc);
 
-		void Setposition(float x, float y)
+		void SetPosition(float x, float y)
 		{
 			mX = x;
 			mY = y;

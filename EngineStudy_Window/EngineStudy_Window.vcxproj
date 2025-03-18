@@ -133,9 +133,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="jwLoadScene.h" />
+    <ClInclude Include="jwPlayer.h" />
     <ClInclude Include="jwPlayScene.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="jwPlayer.cpp" />
     <ClCompile Include="jwPlayScene.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

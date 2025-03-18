@@ -1,5 +1,6 @@
 #pragma once
 #include "CommonInclude.h"
+#include "jwComponent.h"
 
 namespace jw
 {
@@ -9,22 +10,37 @@ namespace jw
 		GameObject();
 		~GameObject();
 
-		void Update();
-		void LateUpdate();
-		void Render(HDC hdc);
+		virtual void Initialize();
+		virtual void Update();
+		virtual void LateUpdate();
+		virtual void Render(HDC hdc);
 
-		void SetPosition(float x, float y)
+		template <typename T>
+		T* AddComponent()
 		{
-			mX = x;
-			mY = y;
+			T* component = new T();
+			component->SetOwner(this);
+			mComponents.push_back(component);
+
+			return component;
 		}
 
-		float GetPositionX() { return mX; }
-		float GetPositionY() { return mY; }
+		template <typename T>
+		T* GetComponent()
+		{
+			T* component = nullptr;
+			for (Component* comp : mComponents)
+			{
+				component = dynamic_cast<T*>(comp);
+				if (comp)
+					break;
+			}
+
+			return component;
+		}
 
 	private:
-		float mX;
-		float mY;
+		std::vector<Component*> mComponents;
 	};
 }
 

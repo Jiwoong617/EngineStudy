@@ -9,9 +9,15 @@
     <ClInclude Include="jwLoadScene.h">
       <Filter>Scene</Filter>
     </ClInclude>
-    <ClInclude Include="jwPlayScene.h" />
+    <ClInclude Include="jwPlayScene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="jwPlayer.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="jwPlayScene.cpp" />
+    <ClCompile Include="jwPlayScene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="jwPlayer.cpp" />
   </ItemGroup>
 </Project>

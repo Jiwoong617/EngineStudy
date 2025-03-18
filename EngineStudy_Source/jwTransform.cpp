@@ -2,9 +2,7 @@
 
 namespace jw
 {
-    Transform::Transform():
-		mX(0),
-		mY(0)
+    Transform::Transform()
     {
     }
     Transform::~Transform()

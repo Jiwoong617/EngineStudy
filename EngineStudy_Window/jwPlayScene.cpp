@@ -16,12 +16,13 @@ namespace jw
     {
         Player* pl = new Player();
         Transform* tr = pl->AddComponent<Transform>();
-        tr->SetPos(800, 450);
+        tr->SetPos(Vector2(0,0));
 
         tr->SetName(L"TR");
 
         SpriteRenderer* sr = pl->AddComponent<SpriteRenderer>();
         sr->SetName(L"SR");
+        sr->ImageLoad(L"..\\Resources\\BgImage.jpg");
 
         AddGameObject(pl);
     }

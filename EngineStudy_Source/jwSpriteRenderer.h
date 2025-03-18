@@ -15,7 +15,11 @@ namespace jw
         void LateUpdate()  override;
         void Render(HDC hdc)  override;
 
-    private:
+        void ImageLoad(const std::wstring& path);
 
+    private:
+        Gdiplus::Image* mImgae;
+        UINT mWidth;
+        UINT mHeight;
     };
 }

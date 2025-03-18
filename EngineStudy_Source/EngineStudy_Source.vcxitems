@@ -20,6 +20,9 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)jwEntity.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)jwGameObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)jwInput.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)jwMath.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)jwResource.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)jwResources.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)jwScene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)jwSceneManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)jwSpriteRenderer.h" />
@@ -32,6 +35,9 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)jwEntity.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)jwGameObject.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)jwInput.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)jwMath.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)jwResource.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)jwResources.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)jwScene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)jwSceneManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)jwSpriteRenderer.cpp" />

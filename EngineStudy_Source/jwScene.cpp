@@ -3,8 +3,9 @@
 namespace jw
 {
 	Scene::Scene()
-		:mGameObjects{}
+		:mLayers{}
 	{
+		CreateLayers();
 	}
 	Scene::~Scene()
 	{
@@ -12,33 +13,67 @@ namespace jw
 
 	void Scene::Initialize()
 	{
-
+		for (Layer* layer : mLayers)
+		{
+			if (layer == nullptr)
+				continue;
+			layer->Initialize();
+		}
 	}
 
 	void Scene::Update()
 	{
-		for (GameObject* gameObj : mGameObjects)
+		for (Layer* layer : mLayers)
 		{
-			gameObj->Update();
+			if (layer == nullptr)
+				continue;
+			layer->Update();
 		}
 	}
 	void Scene::LateUpdate()
 	{
-		for (GameObject* gameObj : mGameObjects)
+		for (Layer* layer : mLayers)
 		{
-			gameObj->LateUpdate();
+			if (layer == nullptr)
+				continue;
+			layer->LateUpdate();
 		}
 	}
 	void Scene::Render(HDC hdc)
 	{
-		for (GameObject* gameObj : mGameObjects)
+		for (Layer* layer : mLayers)
 		{
-			gameObj->Render(hdc);
+			if (layer == nullptr)
+				continue;
+			layer->Render(hdc);
 		}
 	}
 
-	void Scene::AddGameObject(GameObject* gameobject)
+	void Scene::AddGameObject(GameObject* gameObj, const enums::eLayerType type)
 	{
-		mGameObjects.push_back(gameobject);
+		if (gameObj == nullptr)
+			return;
+
+		mLayers[(UINT)type]->AddGameObject(gameObj);
+	}
+
+	void Scene::CreateLayers()
+	{
+		mLayers.resize((UINT)enums::eLayerType::Max);
+		for (size_t i = 0; i < (UINT)enums::eLayerType::Max; i++)
+		{
+			mLayers[i] = new Layer();
+		}
+	}
+
+
+	void Scene::OnEnter()
+	{
+
+	}
+
+	void Scene::OnExit()
+	{
+
 	}
 }

@@ -1,11 +1,13 @@
 #include "jwGameObject.h"
 #include "jwInput.h"
 #include "jwTime.h"
+#include "jwTransform.h"
 
 namespace jw
 {
 	GameObject::GameObject()
 	{
+		initializeTransform();
 	}
 	GameObject::~GameObject()
 	{
@@ -46,5 +48,10 @@ namespace jw
 		{
 			comp->Render(hdc);
 		}
+	}
+
+	void GameObject::initializeTransform()
+	{
+		AddComponent<Transform>();
 	}
 }

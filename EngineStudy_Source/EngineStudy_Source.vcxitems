@@ -16,11 +16,14 @@
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)engineApplication.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)jwEnums.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)jwComponent.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)jwEntity.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)jwGameObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)jwInput.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)jwLayer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)jwMath.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)jwObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)jwResource.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)jwResources.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)jwScene.h" />
@@ -35,6 +38,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)jwEntity.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)jwGameObject.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)jwInput.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)jwLayer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)jwMath.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)jwResource.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)jwResources.cpp" />

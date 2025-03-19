@@ -13,11 +13,17 @@
       <Filter>Scene</Filter>
     </ClInclude>
     <ClInclude Include="jwPlayer.h" />
+    <ClInclude Include="jwTitleScene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="jwPlayScene.cpp">
       <Filter>Scene</Filter>
     </ClCompile>
     <ClCompile Include="jwPlayer.cpp" />
+    <ClCompile Include="jwTitleScene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

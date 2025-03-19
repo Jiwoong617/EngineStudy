@@ -19,6 +19,7 @@ namespace jw
 		T* AddComponent()
 		{
 			T* component = new T();
+			component->Initialize();
 			component->SetOwner(this);
 			mComponents.push_back(component);
 
@@ -38,6 +39,11 @@ namespace jw
 
 			return component;
 		}
+
+	private:
+		//게임 오브젝트 생성 시, transform을 가지고 있게
+		void initializeTransform();
+
 
 	private:
 		std::vector<Component*> mComponents;

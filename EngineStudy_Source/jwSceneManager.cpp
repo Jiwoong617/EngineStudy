@@ -24,4 +24,20 @@ namespace jw
 	{
 		mActiveScene->Render(hdc);
 	}
+
+	Scene* SceneManager::LoadScene(const std::wstring& name)
+	{
+		//이전 Scene Exit 함수 호출
+		if (mActiveScene) mActiveScene->OnExit();
+
+		auto find = mScene.find(name);
+		if (find == mScene.end())
+			return nullptr;
+
+		mActiveScene = find->second;
+		//현재 scene Enter함수 호출
+		mActiveScene->OnEnter();
+
+		return mActiveScene;
+	}
 }

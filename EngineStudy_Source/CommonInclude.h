@@ -8,6 +8,7 @@
 #include <map>
 
 #include "jwMath.h"
+#include "jwEnums.h"
 
 #include <mmsystem.h>
 #include <dinput.h>

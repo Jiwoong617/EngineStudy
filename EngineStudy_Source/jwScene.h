@@ -1,6 +1,7 @@
 #pragma once
 #include "jwEntity.h"
 #include "jwGameObject.h"
+#include "jwLayer.h"
 
 namespace jw
 {
@@ -15,10 +16,18 @@ namespace jw
 		virtual void LateUpdate();
 		virtual void Render(HDC hdc);
 
-		void AddGameObject(GameObject* gameobject);
+		//Scene 이동 관련
+		virtual void OnEnter();
+		virtual void OnExit();
+
+		void AddGameObject(GameObject* gameObj, const enums::eLayerType type);
+		Layer* GetLayer(const enums::eLayerType type) { return mLayers[(UINT)type]; }
 
 	private:
-		std::vector<GameObject*> mGameObjects;
+		void CreateLayers();
+
+	private:
+		std::vector<Layer*> mLayers;
 	};
 }
 

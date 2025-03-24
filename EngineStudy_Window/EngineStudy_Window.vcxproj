@@ -132,13 +132,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="jwLoadResources.h" />
     <ClInclude Include="jwLoadScene.h" />
     <ClInclude Include="jwPlayer.h" />
+    <ClInclude Include="jwPlayerScript.h" />
     <ClInclude Include="jwPlayScene.h" />
     <ClInclude Include="jwTitleScene.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="jwPlayer.cpp" />
+    <ClCompile Include="jwPlayerScript.cpp" />
     <ClCompile Include="jwPlayScene.cpp" />
     <ClCompile Include="jwTitleScene.cpp" />
   </ItemGroup>

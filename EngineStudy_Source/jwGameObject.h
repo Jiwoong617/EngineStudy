@@ -21,7 +21,9 @@ namespace jw
 			T* component = new T();
 			component->Initialize();
 			component->SetOwner(this);
-			mComponents.push_back(component);
+			//mComponents.push_back(component);
+
+			mComponents[(UINT)component->GetType()] = component;
 
 			return component;
 		}

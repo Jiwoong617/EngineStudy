@@ -1,6 +1,7 @@
 #pragma once
 #include "jwEntity.h"
 #include "jwComponent.h"
+#include "jwTexture.h"
 
 namespace jw
 {
@@ -15,11 +16,12 @@ namespace jw
         void LateUpdate()  override;
         void Render(HDC hdc)  override;
 
-        void ImageLoad(const std::wstring& path);
+        void SetTexture(graphics::Texture* texture) { mTexture = texture; }
+        void SetSize(math::Vector2 size) { mSize = size; }
+
 
     private:
-        Gdiplus::Image* mImgae;
-        UINT mWidth;
-        UINT mHeight;
+        graphics::Texture* mTexture;
+        math::Vector2 mSize;
     };
 }

@@ -2,12 +2,6 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)engineApplication.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)jwTransform.cpp">
-      <Filter>Component</Filter>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)jwSpriteRenderer.cpp">
-      <Filter>Component</Filter>
-    </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)jwComponent.cpp">
       <Filter>Component</Filter>
     </ClCompile>
@@ -38,19 +32,31 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)jwEntity.cpp">
       <Filter>Component</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)jwTexture.cpp">
+      <Filter>Resource\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)jwScript.cpp">
+      <Filter>Component\Script</Filter>
+    </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)jwLayer.cpp">
-      <Filter>Component</Filter>
+      <Filter>Component\Layer</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)jwSpriteRenderer.cpp">
+      <Filter>Component\SpriteRenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)jwTransform.cpp">
+      <Filter>Component\Transform</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)jwCamera.cpp">
+      <Filter>Component\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)jwRenderer.cpp">
+      <Filter>Component\Camera</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)engineApplication.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)jwTransform.h">
-      <Filter>Component</Filter>
-    </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)jwSpriteRenderer.h">
-      <Filter>Component</Filter>
-    </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)jwComponent.h">
       <Filter>Component</Filter>
     </ClInclude>
@@ -84,11 +90,29 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)jwEnums.h">
       <Filter>Util</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)jwLayer.h">
-      <Filter>Component</Filter>
-    </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)jwObject.h">
       <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)jwTexture.h">
+      <Filter>Resource\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)jwScript.h">
+      <Filter>Component\Script</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)jwLayer.h">
+      <Filter>Component\Layer</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)jwTransform.h">
+      <Filter>Component\Transform</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)jwSpriteRenderer.h">
+      <Filter>Component\SpriteRenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)jwCamera.h">
+      <Filter>Component\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)jwRenderer.h">
+      <Filter>Component\Camera</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -106,6 +130,24 @@
     </Filter>
     <Filter Include="Resource">
       <UniqueIdentifier>{ba1770da-0d4c-454b-a5c8-9338c46f8b2b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource\Texture">
+      <UniqueIdentifier>{019a9c4b-7317-4413-b140-05b0c302c117}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Script">
+      <UniqueIdentifier>{f6383d3b-9242-41d8-93a1-a766165688d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Layer">
+      <UniqueIdentifier>{574ffb1f-8a7d-49d5-a5ba-67fecc26f804}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\SpriteRenderer">
+      <UniqueIdentifier>{bc7b338b-8692-49cd-977b-bb2d38b48c28}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Transform">
+      <UniqueIdentifier>{11277539-18db-4cc1-82d1-8471f3ef8761}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Camera">
+      <UniqueIdentifier>{94cfcb23-e6e2-4788-9322-8e0e827a4a04}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

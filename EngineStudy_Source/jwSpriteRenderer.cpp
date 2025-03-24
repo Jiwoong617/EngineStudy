@@ -1,13 +1,15 @@
 #include "jwSpriteRenderer.h"
 #include "jwGameObject.h"
 #include "jwTransform.h"
+#include "jwTexture.h"
+#include "jwRenderer.h"
 
 namespace jw
 {
     SpriteRenderer::SpriteRenderer()
-        : mImgae(nullptr)
-        , mWidth(0)
-        , mHeight(0)
+        : Component(enums::eComponentType::SpriteRenderer)
+        , mTexture(nullptr)
+        , mSize(Vector2::One)
     {
     }
     SpriteRenderer::~SpriteRenderer()
@@ -25,17 +27,26 @@ namespace jw
 
     void SpriteRenderer::Render(HDC hdc)
     {
+        if (mTexture == nullptr) assert(false);
+
         Transform* tr = GetOwner()->GetComponent<Transform>();
-        math::Vector2 pos = tr->GetPosition();
+        Vector2 pos = tr->GetPosition();
+        pos = renderer::mainCamera->CaluatePosition(pos);
 
-        Gdiplus::Graphics graphcis(hdc);
-        graphcis.DrawImage(mImgae, Gdiplus::Rect(pos.x, pos.y, mWidth, mHeight));
+        if (mTexture->GetTextureType()
+            == graphics::Texture::eTextureType::Bmp)
+        {
+            TransparentBlt(hdc, pos.x, pos.y
+                , mTexture->GetWidth() * mSize.x, mTexture->GetHeight() * mSize.y
+                , mTexture->GetHdc(), 0, 0, mTexture->GetWidth(), mTexture->GetHeight()
+                , RGB(255, 0, 255));
+        }
+        else if (mTexture->GetTextureType() == graphics::Texture::eTextureType::Png)
+        {
+            Gdiplus::Graphics graphics(hdc);
+            graphics.DrawImage(mTexture->GetImage(),
+                Gdiplus::Rect(pos.x, pos.y, mTexture->GetWidth() * mSize.x, mTexture->GetHeight() * mSize.y));
+        }
     }
 
-    void SpriteRenderer::ImageLoad(const std::wstring& path)
-    {
-        mImgae = Gdiplus::Image::FromFile(path.c_str());
-        mWidth = mImgae->GetWidth();
-        mHeight = mImgae->GetHeight();
-    }
 }

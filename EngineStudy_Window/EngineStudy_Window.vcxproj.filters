@@ -16,6 +16,8 @@
     <ClInclude Include="jwTitleScene.h">
       <Filter>Scene</Filter>
     </ClInclude>
+    <ClInclude Include="jwLoadResources.h" />
+    <ClInclude Include="jwPlayerScript.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="jwPlayScene.cpp">
@@ -25,5 +27,6 @@
     <ClCompile Include="jwTitleScene.cpp">
       <Filter>Scene</Filter>
     </ClCompile>
+    <ClCompile Include="jwPlayerScript.cpp" />
   </ItemGroup>
 </Project>

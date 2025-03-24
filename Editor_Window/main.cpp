@@ -6,6 +6,7 @@
 
 #include "..\\EngineStudy_Source\engineApplication.h"
 #include "..\\EngineStudy_Window\jwLoadScene.h"
+#include "..\\EngineStudy_Window\jwLoadResources.h"
 
 jw::Application application;
 ULONG_PTR gpToken;
@@ -127,8 +128,10 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
    hInst = hInstance; // 인스턴스 핸들을 전역 변수에 저장합니다.
 
-   const UINT width = 1600;
-   const UINT height = 900;
+   //const UINT width = 1600;
+   //const UINT height = 900;
+   const UINT width = 672;
+   const UINT height = 846;
 
    HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
       CW_USEDEFAULT, 0, width, height, nullptr, nullptr, hInstance, nullptr);
@@ -146,6 +149,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    Gdiplus::GdiplusStartup(&gpToken, &gpsi, NULL);
 
    //loadScene
+   jw::LoadResources();
    jw::LoadScenes();
 
    return TRUE;

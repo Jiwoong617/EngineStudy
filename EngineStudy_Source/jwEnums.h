@@ -14,6 +14,7 @@ namespace jw::enums
 	{
 		Texture,
 		AudioClip,
+		Animation,
 		Prefab,
 		End,
 	};
@@ -22,6 +23,7 @@ namespace jw::enums
 	{
 		Transform,
 		SpriteRenderer,
+		Animator,
 		Script,
 
 		//카메라는 가장 늦게 업데이트 되어야됨

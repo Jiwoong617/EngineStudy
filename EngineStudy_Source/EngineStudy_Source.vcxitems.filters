@@ -53,6 +53,12 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)jwRenderer.cpp">
       <Filter>Component\Camera</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)jwAnimation.cpp">
+      <Filter>Component\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)jwAnimator.cpp">
+      <Filter>Component\Animation</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
@@ -114,6 +120,12 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)jwRenderer.h">
       <Filter>Component\Camera</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)jwAnimation.h">
+      <Filter>Component\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)jwAnimator.h">
+      <Filter>Component\Animation</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Component">
@@ -148,6 +160,9 @@
     </Filter>
     <Filter Include="Component\Camera">
       <UniqueIdentifier>{94cfcb23-e6e2-4788-9322-8e0e827a4a04}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Animation">
+      <UniqueIdentifier>{ddc835ff-7ff3-43a2-90f2-9e393dfab8fd}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

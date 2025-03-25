@@ -1,6 +1,8 @@
 #pragma once
 #include "CommonInclude.h"
 
+using namespace jw::math;
+
 namespace jw
 {
 	class Entity

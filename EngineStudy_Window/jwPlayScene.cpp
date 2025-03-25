@@ -12,6 +12,7 @@
 #include "jwPlayerScript.h"
 #include "jwCamera.h"
 #include "jwRenderer.h"
+#include "jwAnimator.h"
 
 
 namespace jw
@@ -35,12 +36,19 @@ namespace jw
         //플레이어
         mPlayer = object::Instantiate<Player>
             (enums::eLayerType::Player/*, Vector2(100.0f, 100.0f)*/);
-        SpriteRenderer* sr = mPlayer->AddComponent<SpriteRenderer>();
-        sr->SetSize(Vector2(3.0f, 3.0f));
+        //SpriteRenderer* sr = mPlayer->AddComponent<SpriteRenderer>();
+        //sr->SetSize(Vector2(3.0f, 3.0f));
         mPlayer->AddComponent<PlayerScript>();
         //플레이어에 팩맨 텍스쳐 set
-        graphics::Texture* packmanTexture = Resources::Find<graphics::Texture>(L"PackMan");
-        sr->SetTexture(packmanTexture);
+        graphics::Texture* packmanTexture = Resources::Find<graphics::Texture>(L"Cat");
+        //sr->SetTexture(packmanTexture);
+
+        //플레이어 애니메이션
+        Animator* animator = mPlayer->AddComponent<Animator>();
+        //size - 256/8
+        animator->CreateAnimation(L"CatFrontMove", packmanTexture, Vector2(0.0f, 0.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.5f);
+        animator->PlayAnimation(L"CatFrontMove", true);
+        
 
 
         //배경

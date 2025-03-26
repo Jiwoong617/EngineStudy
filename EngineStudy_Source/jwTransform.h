@@ -18,10 +18,18 @@ namespace jw
         void LateUpdate()  override;
         void Render(HDC hdc)  override;
 
-        void SetPosition(Vector2 pos) { mPosition.x = pos.x; mPosition.y = pos.y; }
         Vector2 GetPosition() { return mPosition; }
+        void SetPosition(Vector2 pos) { mPosition.x = pos.x; mPosition.y = pos.y; }
+        
+        float GetRoation() { return mRotation; }
+        void SetRotation(float rotate) { mRotation = rotate; }
+        
+        Vector2 GetScale() { return mScale; }
+        void SetScale(Vector2 scale) { mScale = scale; }
 
     private:
         Vector2 mPosition;
+        Vector2 mScale;
+        float mRotation;
     };
 }

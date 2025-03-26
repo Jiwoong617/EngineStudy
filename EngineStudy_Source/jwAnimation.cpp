@@ -54,30 +54,68 @@ namespace jw
         GameObject* gameObj = mAnimator->GetOwner();
         Transform* tr = gameObj->GetComponent<Transform>();
         Vector2 pos = tr->GetPosition();
+        Vector2 scale = tr->GetScale();
+        float rot = tr->GetRoation();
 
         if (renderer::mainCamera)
             pos = renderer::mainCamera->CaluatePosition(pos);
 
-        //알파 블렌드 투명 설정
-        BLENDFUNCTION func = {};
-        func.BlendOp = AC_SRC_OVER;
-        func.BlendFlags = 0;
-        func.AlphaFormat = AC_SRC_ALPHA;
-        func.SourceConstantAlpha = 255; // 0(투명) ~ 255(Opaque-불투명)
-
         Sprite sprite = mAnimationSheet[mIndex];
-        HDC imgHdc = mTexture->GetHdc();
+        graphics::Texture::eTextureType type = mTexture->GetTextureType();
 
-        AlphaBlend(hdc
-            , pos.x, pos.y
-            , sprite.size.x * 5
-            , sprite.size.y * 5
-            , imgHdc
-            , sprite.leftTop.x
-            , sprite.leftTop.y
-            , sprite.size.x
-            , sprite.size.y
-            , func);
+        if (type == graphics::Texture::eTextureType::Bmp)
+        {
+            //알파 블렌드 투명 설정
+            BLENDFUNCTION func = {};
+            func.BlendOp = AC_SRC_OVER;
+            func.BlendFlags = 0;
+            func.AlphaFormat = AC_SRC_ALPHA;
+            func.SourceConstantAlpha = 255; // 0(투명) ~ 255(Opaque-불투명)
+
+            HDC imgHdc = mTexture->GetHdc();
+
+            AlphaBlend(hdc
+                , pos.x - (sprite.size.x / 2.0f)
+                , pos.y - (sprite.size.y / 2.0f)
+                , sprite.size.x * scale.x
+                , sprite.size.y * scale.y
+                , imgHdc
+                , sprite.leftTop.x
+                , sprite.leftTop.y
+                , sprite.size.x
+                , sprite.size.y
+                , func);
+        }
+        else if (type == graphics::Texture::eTextureType::Png)
+        {
+            //원하는 픽셀 투명화하고 싶을 때
+            Gdiplus::ImageAttributes imgAtt = {};
+            //픽셀 색 범위
+            imgAtt.SetColorKey(Gdiplus::Color(230, 230, 230), Gdiplus::Color(255, 255, 255));
+
+            Gdiplus::Graphics graphics(hdc);
+
+            graphics.TranslateTransform(pos.x, pos.y);
+            graphics.RotateTransform(rot);
+            graphics.TranslateTransform(-pos.x, -pos.y);
+
+            graphics.DrawImage(mTexture->GetImage()
+                , Gdiplus::Rect
+                (   // 이미지 피벗 중앙으로 만들기
+                    pos.x - (sprite.size.x / 2.0f)
+                    , pos.y - (sprite.size.y / 2.0f)
+                    , sprite.size.x * scale.x
+                    , sprite.size.y * scale.y
+                )
+                , sprite.leftTop.x
+                , sprite.leftTop.y
+                , sprite.size.x
+                , sprite.size.y
+                , Gdiplus::UnitPixel
+                , nullptr
+            );
+        }
+
     }
 
     void Animation::CreateAnimation(const std::wstring& name, graphics::Texture* spriteSheet

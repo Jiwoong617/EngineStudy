@@ -33,31 +33,33 @@ namespace jw
         renderer::mainCamera = cameraComp;
 
 
-        //플레이어
-        mPlayer = object::Instantiate<Player>
-            (enums::eLayerType::Player/*, Vector2(100.0f, 100.0f)*/);
-        //SpriteRenderer* sr = mPlayer->AddComponent<SpriteRenderer>();
-        //sr->SetSize(Vector2(3.0f, 3.0f));
+        mPlayer = object::Instantiate<Player>(enums::eLayerType::Particle);
         mPlayer->AddComponent<PlayerScript>();
-        //플레이어에 팩맨 텍스쳐 set
+
         graphics::Texture* packmanTexture = Resources::Find<graphics::Texture>(L"Cat");
-        //sr->SetTexture(packmanTexture);
-
-        //플레이어 애니메이션
         Animator* animator = mPlayer->AddComponent<Animator>();
-        //size - 256/8
-        animator->CreateAnimation(L"CatFrontMove", packmanTexture, Vector2(0.0f, 0.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.5f);
-        animator->PlayAnimation(L"CatFrontMove", true);
-        
+        animator->CreateAnimation(L"DownWalk", packmanTexture
+            , Vector2(0.0f, 0.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
+        animator->CreateAnimation(L"RightWalk", packmanTexture
+            , Vector2(0.0f, 32.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
+        animator->CreateAnimation(L"UpWalk", packmanTexture
+            , Vector2(0.0f, 64.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
+        animator->CreateAnimation(L"LeftWalk", packmanTexture
+            , Vector2(0.0f, 96.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
+        animator->CreateAnimation(L"SitDown", packmanTexture
+            , Vector2(0.0f, 128.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
+        animator->CreateAnimation(L"Grooming", packmanTexture
+            , Vector2(0.0f, 160.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
 
+        animator->PlayAnimation(L"SitDown", false);
 
-        //배경
-        GameObject* bg = object::Instantiate<GameObject>
-            (enums::eLayerType::BackGround/*, Vector2(100.0f, 100.0f)*/);
+        mPlayer->GetComponent<Transform>()->SetPosition(Vector2(100.0f, 100.0f));
+        mPlayer->GetComponent<Transform>()->SetScale(Vector2(2.0f, 2.0f));
+
+        GameObject* bg = object::Instantiate<GameObject>(enums::eLayerType::Player);
         SpriteRenderer* bgSr = bg->AddComponent<SpriteRenderer>();
-        bgSr->SetSize(Vector2(3.0f, 3.0f));
 
-        graphics::Texture* bgTexture = Resources::Find<graphics::Texture>(L"Map");
+        graphics::Texture* bgTexture = Resources::Find<graphics::Texture>(L"Bubble");
         bgSr->SetTexture(bgTexture);
 
         // 게임 오브젝트 생성후 레이어와 게임오브젝트들의 init함수를 호출

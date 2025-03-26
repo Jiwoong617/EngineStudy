@@ -27,26 +27,43 @@ namespace jw
 
     void SpriteRenderer::Render(HDC hdc)
     {
-        if (mTexture == nullptr) assert(false);
+        if (mTexture == nullptr)
+			assert(false);
 
-        Transform* tr = GetOwner()->GetComponent<Transform>();
-        Vector2 pos = tr->GetPosition();
-        pos = renderer::mainCamera->CaluatePosition(pos);
+		Transform* tr = GetOwner()->GetComponent<Transform>();
+		Vector2 pos = tr->GetPosition();
+		Vector2 scale = tr->GetScale();
+		float rot = tr->GetRoation();
 
-        if (mTexture->GetTextureType()
-            == graphics::Texture::eTextureType::Bmp)
-        {
-            TransparentBlt(hdc, pos.x, pos.y
-                , mTexture->GetWidth() * mSize.x, mTexture->GetHeight() * mSize.y
-                , mTexture->GetHdc(), 0, 0, mTexture->GetWidth(), mTexture->GetHeight()
-                , RGB(255, 0, 255));
-        }
-        else if (mTexture->GetTextureType() == graphics::Texture::eTextureType::Png)
-        {
-            Gdiplus::Graphics graphics(hdc);
-            graphics.DrawImage(mTexture->GetImage(),
-                Gdiplus::Rect(pos.x, pos.y, mTexture->GetWidth() * mSize.x, mTexture->GetHeight() * mSize.y));
-        }
+		pos = renderer::mainCamera->CaluatePosition(pos);
+		if (mTexture->GetTextureType() == graphics::Texture::eTextureType::Bmp)
+		{
+			TransparentBlt(hdc, pos.x, pos.y
+				, mTexture->GetWidth() * mSize.x * scale.x, mTexture->GetHeight() * mSize.y * scale.y
+				, mTexture->GetHdc(), 0, 0, mTexture->GetWidth(), mTexture->GetHeight()
+				, RGB(255, 0, 255));
+		}
+		else if (mTexture->GetTextureType() == graphics::Texture::eTextureType::Png)
+		{
+			// 투명화 시킬 픽셀의 색 범위
+			Gdiplus::ImageAttributes imgAtt = {};
+			imgAtt.SetColorKey(Gdiplus::Color(230, 230, 230), Gdiplus::Color(255, 255, 255));
+
+			Gdiplus::Graphics graphcis(hdc);
+
+			graphcis.TranslateTransform(pos.x, pos.y);
+			graphcis.RotateTransform(rot);
+			graphcis.TranslateTransform(-pos.x, -pos.y);
+
+			graphcis.DrawImage(mTexture->GetImage()
+				, Gdiplus::Rect( pos.x, pos.y
+					, mTexture->GetWidth() * mSize.x * scale.x
+					, mTexture->GetHeight() * mSize.y * scale.y)
+				, 0, 0
+				, mTexture->GetWidth(), mTexture->GetHeight()
+				, Gdiplus::UnitPixel
+				, nullptr);
+		}
     }
 
 }

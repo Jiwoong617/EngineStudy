@@ -35,7 +35,7 @@ namespace jw
 			for (Component* comp : mComponents)
 			{
 				component = dynamic_cast<T*>(comp);
-				if (comp)
+				if (component) //이걸 잘못 쳤네;;
 					break;
 			}
 

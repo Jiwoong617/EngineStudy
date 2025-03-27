@@ -25,6 +25,15 @@ namespace jw
 		mActiveScene->Render(hdc);
 	}
 
+	void SceneManager::Release()
+	{
+		for (auto& iter : mScene)
+		{
+			delete iter.second;
+			iter.second = nullptr;
+		}
+	}
+
 	Scene* SceneManager::LoadScene(const std::wstring& name)
 	{
 		//이전 Scene Exit 함수 호출

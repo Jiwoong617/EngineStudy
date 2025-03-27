@@ -2,6 +2,7 @@
 #include "jwInput.h"
 #include "jwTime.h"
 #include "jwSceneManager.h"
+#include "jwResources.h"
 
 namespace jw
 {
@@ -56,6 +57,12 @@ namespace jw
 
 
 		copyRenderTarget(mBackHdc, mHdc);
+	}
+
+	void Application::Release()
+	{
+		SceneManager::Release();
+		Resources::Release();
 	}
 
 	void Application::clearRenderTarget()

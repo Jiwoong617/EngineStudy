@@ -7,6 +7,7 @@ namespace jw::enums
 		None,
 		BackGround,
 		Player,
+		Animal,
 		Particle,
 		Max = 16,
 	};

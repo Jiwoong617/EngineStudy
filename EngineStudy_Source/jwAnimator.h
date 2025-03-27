@@ -7,6 +7,30 @@ namespace jw
     class Animator : public Component
     {
     public:
+        struct Event
+        {
+            //간편하게 넣기
+            void operator=(std::function<void()> func)
+            {
+                mEvent = std::move(func);
+            }
+
+            void operator()() //함수처럼 쓰고 싶을 때
+            {
+                if (mEvent) //있으면 실행
+                    mEvent();
+            }
+
+            std::function<void()> mEvent;
+        };
+
+        struct Events
+        {
+            Event startEvent;
+            Event completeEvent;
+            Event endEvent;
+        };
+
         Animator();
         ~Animator();
 
@@ -28,9 +52,20 @@ namespace jw
         // - 왼쪽을 초기화했는데 오른쪽을 초기화 안하면 오류남
         void PlayAnimation(const std::wstring& name, bool loop = true);
 
+
+        Events* FindEvents(const std::wstring& name);
+        std::function<void()>& GetStartEvent(const std::wstring& name);
+        std::function<void()>& GetCompleteEvent(const std::wstring& name);
+        std::function<void()>& GetEndEvent(const std::wstring& name);
+
+        bool IsComplete() { return mActiveAnimation->IsComplete(); }
+
     private:
         std::map<std::wstring, Animation*> mAnimations;
         Animation* mActiveAnimation;
         bool mbLoop;
+
+        //Event
+        std::map<std::wstring, Events*> mEvents;
     };
 }

@@ -18,6 +18,8 @@ namespace jw
         void LateUpdate() override;
         void Render(HDC hdc) override;
 
+        void SetTarget(GameObject* target) { mTarget = target; };
+
     private:
         // gameobject 전방선언
         class GameObject* mTarget;

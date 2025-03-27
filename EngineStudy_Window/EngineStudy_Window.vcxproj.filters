@@ -4,6 +4,12 @@
     <Filter Include="Scene">
       <UniqueIdentifier>{63c3f0d7-8385-4800-90a0-716c2df1d7a9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Player">
+      <UniqueIdentifier>{5e67d5a8-5787-4347-bb49-d095c345be69}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Cat">
+      <UniqueIdentifier>{4a00cdb5-509f-4345-8763-53166812c0f0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="jwLoadScene.h">
@@ -12,21 +18,41 @@
     <ClInclude Include="jwPlayScene.h">
       <Filter>Scene</Filter>
     </ClInclude>
-    <ClInclude Include="jwPlayer.h" />
     <ClInclude Include="jwTitleScene.h">
       <Filter>Scene</Filter>
     </ClInclude>
     <ClInclude Include="jwLoadResources.h" />
-    <ClInclude Include="jwPlayerScript.h" />
+    <ClInclude Include="jwPlayer.h">
+      <Filter>Player</Filter>
+    </ClInclude>
+    <ClInclude Include="jwPlayerScript.h">
+      <Filter>Player</Filter>
+    </ClInclude>
+    <ClInclude Include="jwCat.h">
+      <Filter>Cat</Filter>
+    </ClInclude>
+    <ClInclude Include="jwCatScript.h">
+      <Filter>Cat</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="jwPlayScene.cpp">
       <Filter>Scene</Filter>
     </ClCompile>
-    <ClCompile Include="jwPlayer.cpp" />
     <ClCompile Include="jwTitleScene.cpp">
       <Filter>Scene</Filter>
     </ClCompile>
-    <ClCompile Include="jwPlayerScript.cpp" />
+    <ClCompile Include="jwPlayer.cpp">
+      <Filter>Player</Filter>
+    </ClCompile>
+    <ClCompile Include="jwPlayerScript.cpp">
+      <Filter>Player</Filter>
+    </ClCompile>
+    <ClCompile Include="jwCat.cpp">
+      <Filter>Cat</Filter>
+    </ClCompile>
+    <ClCompile Include="jwCatScript.cpp">
+      <Filter>Cat</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

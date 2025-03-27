@@ -17,6 +17,7 @@ namespace jw
 		A, S, D, F, G, H, J, K, L,
 		Z, X, C, V, B, N, M,
 		Left, Right, Down, Up,
+		LButton, MButton, RButton,
 		End,
 	};
 
@@ -33,14 +34,23 @@ namespace jw
 		static void Initialize();
 		static void Update();
 
-		static bool GetKeyDown(eKeyCode code) { return mKeys[(UINT)code].state == eKeyState::Down; }
-		static bool GetKeyUp(eKeyCode code) { return mKeys[(UINT)code].state == eKeyState::Up; }
-		static bool GetKey(eKeyCode code) { return mKeys[(UINT)code].state == eKeyState::Pressed; }
+		static bool GetKeyDown(eKeyCode code) { return Keys[(UINT)code].state == eKeyState::Down; }
+		static bool GetKeyUp(eKeyCode code) { return Keys[(UINT)code].state == eKeyState::Up; }
+		static bool GetKey(eKeyCode code) { return Keys[(UINT)code].state == eKeyState::Pressed; }
+		static math::Vector2 GetMousePosition() { return mMousePosition; }
 
 	private:
-		static void CreateKeys();
+		static void createKeys();
+		static void updateKeys();
+		static void updateKey(Input::Key& key);
+		static bool isKeyDown(eKeyCode code);
+		static void updateKeyDown(Input::Key& key);
+		static void updateKeyUp(Input::Key& key);
+		static void getMousePositionByWindow();
+		static void clearKeys();
 
 	private:
-		static std::vector<Key> mKeys; //정적 변수 선언
+		static std::vector<Key> Keys; //정적 변수 선언
+		static math::Vector2 mMousePosition;
 	};
 }

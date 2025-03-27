@@ -136,6 +136,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="jwCat.h" />
+    <ClInclude Include="jwCatScript.h" />
     <ClInclude Include="jwLoadResources.h" />
     <ClInclude Include="jwLoadScene.h" />
     <ClInclude Include="jwPlayer.h" />
@@ -144,6 +146,8 @@
     <ClInclude Include="jwTitleScene.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="jwCat.cpp" />
+    <ClCompile Include="jwCatScript.cpp" />
     <ClCompile Include="jwPlayer.cpp" />
     <ClCompile Include="jwPlayerScript.cpp" />
     <ClCompile Include="jwPlayScene.cpp" />

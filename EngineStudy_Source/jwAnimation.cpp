@@ -66,15 +66,15 @@ namespace jw
         if (type == graphics::Texture::eTextureType::Bmp)
         {
             //알파 블렌드 투명 설정
-            BLENDFUNCTION func = {};
+            /*BLENDFUNCTION func = {};
             func.BlendOp = AC_SRC_OVER;
             func.BlendFlags = 0;
             func.AlphaFormat = AC_SRC_ALPHA;
-            func.SourceConstantAlpha = 255; // 0(투명) ~ 255(Opaque-불투명)
+            func.SourceConstantAlpha = 255;*/ // 0(투명) ~ 255(Opaque-불투명)
 
             HDC imgHdc = mTexture->GetHdc();
 
-            AlphaBlend(hdc
+            /*AlphaBlend(hdc
                 , pos.x - (sprite.size.x / 2.0f)
                 , pos.y - (sprite.size.y / 2.0f)
                 , sprite.size.x * scale.x
@@ -84,7 +84,18 @@ namespace jw
                 , sprite.leftTop.y
                 , sprite.size.x
                 , sprite.size.y
-                , func);
+                , func);*/
+            TransparentBlt(hdc
+                , pos.x - (sprite.size.x / 2.0f)
+                , pos.y - (sprite.size.y / 2.0f)
+                , sprite.size.x * scale.x
+                , sprite.size.y * scale.y
+                , imgHdc
+                , sprite.leftTop.x
+                , sprite.leftTop.y
+                , sprite.size.x
+                , sprite.size.y
+                , RGB(255, 0, 255));
         }
         else if (type == graphics::Texture::eTextureType::Png)
         {

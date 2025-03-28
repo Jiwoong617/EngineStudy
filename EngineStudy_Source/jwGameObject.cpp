@@ -5,7 +5,7 @@
 
 namespace jw
 {
-	GameObject::GameObject()
+	GameObject::GameObject() : mState(eState::Active)
 	{
 		mComponents.resize((UINT)enums::eComponentType::End);
 		initializeTransform();

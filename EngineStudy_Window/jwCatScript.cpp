@@ -4,6 +4,7 @@
 #include "jwTime.h"
 #include "jwGameObject.h"
 #include "jwAnimator.h"
+#include "jwObject.h"
 
 namespace jw
 {
@@ -11,6 +12,7 @@ namespace jw
         : mState(CatScript::eState::SitDown)
         , mAnimator(nullptr)
         , mTime(0.0f)
+        , mDeathTime(0.0f)
     {
     }
     CatScript::~CatScript()
@@ -25,6 +27,12 @@ namespace jw
 
     void CatScript::Update()
     {
+        mDeathTime += Time::DeltaTime();
+        if (mDeathTime > 6.0f)
+        {
+            object::Destroy(GetOwner());
+        }
+
         if (mAnimator == nullptr)
         {
             mAnimator = GetOwner()->GetComponent<Animator>();

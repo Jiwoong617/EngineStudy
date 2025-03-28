@@ -7,6 +7,14 @@ namespace jw
 	class GameObject
 	{
 	public:
+		enum class eState
+		{
+			Active,
+			Paused,
+			Dead,
+			End
+		};
+
 		GameObject();
 		~GameObject();
 
@@ -42,12 +50,21 @@ namespace jw
 			return component;
 		}
 
+		eState GetActive() { return mState; }
+		void SetActive(bool power)
+		{
+			if (power == true) mState = eState::Active;
+			if (power == false) mState = eState::Paused;
+		}
+		void Death() { mState = eState::Dead; }
+
 	private:
 		//게임 오브젝트 생성 시, transform을 가지고 있게
 		void initializeTransform();
 
 
 	private:
+		eState mState;
 		std::vector<Component*> mComponents;
 	};
 }

@@ -7,6 +7,7 @@
 #include <string>
 #include <map>
 #include <functional>
+#include <filesystem>
 
 #include "jwMath.h"
 #include "jwEnums.h"

@@ -5,6 +5,8 @@
 
 namespace jw
 {
+    typedef std::vector<GameObject*>::iterator GameObjectIter;
+
     class Layer : public Entity
     {
     public:
@@ -15,6 +17,7 @@ namespace jw
         virtual void Update();
         virtual void LateUpdate();
         virtual void Render(HDC hdc);
+        virtual void Destroy();
 
         void AddGameObject(GameObject* gameObject);
 

@@ -47,6 +47,10 @@ namespace jw
             , UINT spriteLegth  //몇 장 자를건지
             , float duration);  //애니메이션 재생 속도
 
+        void CreateAnimationByFolder(const std::wstring& name
+            , const std::wstring& path
+            , Vector2 offset, float duration);
+
         Animation* FindAnimation(const std::wstring& name);
         //전달 인자를 읽어 올때, 오른쪽부터 읽어옴
         // - 왼쪽을 초기화했는데 오른쪽을 초기화 안하면 오류남

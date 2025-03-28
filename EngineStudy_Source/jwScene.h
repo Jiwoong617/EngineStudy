@@ -15,6 +15,7 @@ namespace jw
 		virtual void Update();
 		virtual void LateUpdate();
 		virtual void Render(HDC hdc);
+		virtual void Destroy();
 
 		//Scene 이동 관련
 		virtual void OnEnter();

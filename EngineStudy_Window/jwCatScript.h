@@ -46,6 +46,6 @@ namespace jw
         class Animator* mAnimator;
         eDirection mDirection;
         float mTime;
-
+        float mDeathTime;
     };
 }

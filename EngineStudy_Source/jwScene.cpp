@@ -35,6 +35,7 @@ namespace jw
 			layer->Update();
 		}
 	}
+
 	void Scene::LateUpdate()
 	{
 		for (Layer* layer : mLayers)
@@ -44,6 +45,7 @@ namespace jw
 			layer->LateUpdate();
 		}
 	}
+
 	void Scene::Render(HDC hdc)
 	{
 		for (Layer* layer : mLayers)
@@ -51,6 +53,17 @@ namespace jw
 			if (layer == nullptr)
 				continue;
 			layer->Render(hdc);
+		}
+	}
+
+	void Scene::Destroy()
+	{
+		for (Layer* layer : mLayers)
+		{
+			if (layer == nullptr)
+				continue;
+
+			layer->Destroy();
 		}
 	}
 

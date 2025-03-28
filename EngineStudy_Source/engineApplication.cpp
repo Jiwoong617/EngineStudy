@@ -33,6 +33,7 @@ namespace jw
 		Update();
 		LateUpdate();
 		Render();
+		Destroy();
 	}
 
 	void Application::Update()
@@ -57,6 +58,11 @@ namespace jw
 
 
 		copyRenderTarget(mBackHdc, mHdc);
+	}
+
+	void Application::Destroy()
+	{
+		SceneManager::Destroy();
 	}
 
 	void Application::Release()

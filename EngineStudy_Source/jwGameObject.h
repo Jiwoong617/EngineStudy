@@ -2,11 +2,18 @@
 #include "CommonInclude.h"
 #include "jwComponent.h"
 
+namespace jw::object
+{
+	void Destroy(GameObject* gameObject);
+}
+
 namespace jw
 {
 	class GameObject
 	{
 	public:
+		friend void object::Destroy(GameObject* obj);
+
 		enum class eState
 		{
 			Active,
@@ -50,17 +57,19 @@ namespace jw
 			return component;
 		}
 
-		eState GetActive() { return mState; }
+		eState GetState() { return mState; }
 		void SetActive(bool power)
 		{
 			if (power == true) mState = eState::Active;
 			if (power == false) mState = eState::Paused;
 		}
-		void Death() { mState = eState::Dead; }
+		bool IsActive() { return mState == eState::Active; }
+		bool IsDead() { return mState == eState::Dead; }
 
 	private:
 		//게임 오브젝트 생성 시, transform을 가지고 있게
 		void initializeTransform();
+		void death() { mState = eState::Dead; }
 
 
 	private:

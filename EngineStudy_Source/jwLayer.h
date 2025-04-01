@@ -22,6 +22,11 @@ namespace jw
         void AddGameObject(GameObject* gameObject);
 
     private:
+        void findDeadGameObjects(OUT std::vector<GameObject*>& gameObjs);
+        void deleteGameObjects(std::vector<GameObject*> gameObjs);
+        void eraseGameObject();
+
+    private:
         std::vector<GameObject*> mGameObjects;
     };
 }

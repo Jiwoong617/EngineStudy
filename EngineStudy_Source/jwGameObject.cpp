@@ -3,6 +3,15 @@
 #include "jwTime.h"
 #include "jwTransform.h"
 
+namespace jw::object
+{
+	void Destroy(GameObject* gameObject)
+	{
+		if (gameObject != nullptr)
+			gameObject->death();
+	}
+}
+
 namespace jw
 {
 	GameObject::GameObject() : mState(eState::Active)

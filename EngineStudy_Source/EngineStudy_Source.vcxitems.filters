@@ -96,9 +96,6 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)jwEnums.h">
       <Filter>Util</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)jwObject.h">
-      <Filter>Util</Filter>
-    </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)jwTexture.h">
       <Filter>Resource\Texture</Filter>
     </ClInclude>
@@ -125,6 +122,9 @@
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)jwAnimator.h">
       <Filter>Component\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)jwObject.h">
+      <Filter>Object</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -163,6 +163,9 @@
     </Filter>
     <Filter Include="Component\Animation">
       <UniqueIdentifier>{ddc835ff-7ff3-43a2-90f2-9e393dfab8fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object">
+      <UniqueIdentifier>{c49d9aa3-1428-4ae5-afc9-8c85c44f30d1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

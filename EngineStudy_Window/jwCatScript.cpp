@@ -13,6 +13,8 @@ namespace jw
         , mAnimator(nullptr)
         , mTime(0.0f)
         , mDeathTime(0.0f)
+        , mDest(Vector2::Zero)
+        , mRadian(0.0f)
     {
     }
     CatScript::~CatScript()
@@ -30,7 +32,7 @@ namespace jw
         mDeathTime += Time::DeltaTime();
         if (mDeathTime > 6.0f)
         {
-            object::Destroy(GetOwner());
+            //object::Destroy(GetOwner());
         }
 
         if (mAnimator == nullptr)
@@ -71,14 +73,35 @@ namespace jw
     void CatScript::sitDown()
     {
         mTime += Time::DeltaTime();
-        if (mTime > 3.0f)
-        {
-            mState = CatScript::eState::Walk;
-            int direction = (rand() % 4);
-            mDirection = (eDirection)direction;
-            playWalkAnimationByDirection(mDirection);
-            mTime = 0.0f;
-        }
+
+        Transform* tr = GetOwner()->GetComponent<Transform>();
+        Vector2 pos = tr->GetPosition();
+
+        // 삼각함수를 통한 이동
+        //mRadian += 5.0f * Time::DeltaTime();
+        //pos += Vector2(1.0f, 2.0f * cosf(mRadian)) * (100.0f * Time::DeltaTime());
+
+        Transform* plTr = mPlayer->GetComponent<Transform>();
+        Vector2 dest = mDest - plTr->GetPosition();
+        dest.normalize();
+
+        float rotDegree = Vector2::Dot(dest, Vector2::Right); //cos세타
+        rotDegree = acosf(rotDegree);
+
+        rotDegree = ConvertDegree(rotDegree);
+
+        pos += dest * (100.0f * Time::DeltaTime());
+
+        tr->SetPosition(pos);
+
+        //if (mTime > 3.0f)
+        //{
+        //    mState = CatScript::eState::Walk;
+        //    int direction = (rand() % 4);
+        //    mDirection = (eDirection)direction;
+        //    playWalkAnimationByDirection(mDirection);
+        //    mTime = 0.0f;
+        //}
     }
 
     void CatScript::move()

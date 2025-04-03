@@ -65,6 +65,19 @@ namespace jw
     {
     }
 
+	void PlayerScript::OnCollisionEnter(Collider* other)
+	{
+		//other->GetOwner()->GetComponent<Transform>()->SetPosition(Vector2(400.0f, 500.0f));
+	}
+
+	void PlayerScript::OnCollisionStay(Collider* other)
+	{
+	}
+
+	void PlayerScript::OnCollisionExit(Collider* other)
+	{
+	}
+
 	void PlayerScript::AttackEffect()
 	{
 		Cat* cat = object::Instantiate<Cat>(enums::eLayerType::Animal);

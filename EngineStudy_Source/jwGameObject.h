@@ -1,6 +1,7 @@
 #pragma once
 #include "CommonInclude.h"
 #include "jwComponent.h"
+#include "jwCollider.h"
 
 namespace jw::object
 {

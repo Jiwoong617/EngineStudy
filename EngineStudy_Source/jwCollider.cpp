@@ -1,10 +1,15 @@
 #include "jwCollider.h"
-
+#include "jwGameObject.h"
+#include "jwScript.h"
 
 namespace jw
 {
+    UINT Collider::CollisionID = 1;
+
     Collider::Collider()
         : Component(enums::eComponentType::Colider)
+        , mID(CollisionID++)
+        , mSize(Vector2::One)
     {
 
     }
@@ -29,4 +34,27 @@ namespace jw
     {
     }
 
+    void Collider::OnCollisionEnter(Collider* other)
+    {
+        Script* script = GetOwner()->GetComponent<Script>();
+
+        if(script != nullptr)
+            script->OnCollisionEnter(other);
+    }
+
+    void Collider::OnCollisionStay(Collider* other)
+    {
+        Script* script = GetOwner()->GetComponent<Script>();
+
+        if (script != nullptr)
+            script->OnCollisionStay(other);
+    }
+
+    void Collider::OnCollisionExit(Collider* other)
+    {
+        Script* script = GetOwner()->GetComponent<Script>();
+
+        if (script != nullptr)
+            script->OnCollisionExit(other);
+    }
 }

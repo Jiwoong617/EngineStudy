@@ -16,6 +16,6 @@ namespace jw
 
     private:
         //박스는 사이즈
-        Vector2 mSize;
+        //Vector2 mSize;
     };
 }

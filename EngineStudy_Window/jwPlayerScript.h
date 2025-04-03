@@ -24,6 +24,10 @@ namespace jw
         void LateUpdate() override;
         void Render(HDC hdc) override;
 
+        void OnCollisionEnter(Collider* other) override;
+        void OnCollisionStay(Collider* other) override;
+        void OnCollisionExit(Collider* other) override;
+
         void AttackEffect();
 
     private:

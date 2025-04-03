@@ -39,8 +39,7 @@ namespace jw
         renderer::mainCamera = cameraComp;
 
         //player
-        mPlayer = object::Instantiate<Player>(enums::eLayerType::Particle);
-        //mPlayer->AddComponent<PlayerScript>();
+        mPlayer = object::Instantiate<Player>(enums::eLayerType::Player);
         PlayerScript* plScript = mPlayer->AddComponent<PlayerScript>();
 
         //박스 콜라이더

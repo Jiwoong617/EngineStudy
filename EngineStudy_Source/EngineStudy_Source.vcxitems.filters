@@ -71,6 +71,9 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)jwCollisionManager.cpp">
       <Filter>Component\Collider</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)jwObject.cpp">
+      <Filter>Object</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />

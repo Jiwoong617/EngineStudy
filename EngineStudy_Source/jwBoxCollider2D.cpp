@@ -1,12 +1,12 @@
 #include "jwBoxCollider2D.h"
 #include "jwTransform.h"
 #include "jwGameObject.h"
-
+#include "jwRenderer.h"
+#include "jwCamera.h"
 
 namespace jw
 {
-    BoxCollider2D::BoxCollider2D()
-        : Collider()
+    BoxCollider2D::BoxCollider2D() : Collider(enums::eColliderType::Rect2D)
     {
     }
     BoxCollider2D::~BoxCollider2D()
@@ -29,6 +29,9 @@ namespace jw
     {
         Transform* tr = GetOwner()->GetComponent<Transform>();
         Vector2 pos = tr->GetPosition();
+
+        if (renderer::mainCamera)
+            pos = renderer::mainCamera->CaluatePosition(pos);
 
         Vector2 offset = GetOffset();
 

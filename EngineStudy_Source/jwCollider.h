@@ -7,7 +7,7 @@ namespace jw
     class Collider : public Component
     {
     public:
-        Collider();
+        Collider(eColliderType type);
         ~Collider();
 
         virtual void Initialize();
@@ -25,8 +25,12 @@ namespace jw
         Vector2 GetSize() { return mSize; }
         void SetSize(Vector2 size) { mSize = size; }
 
+        eColliderType GetColliderType() { return mType; }
+
     private:
         static UINT CollisionID;
+
+        eColliderType mType;
 
         UINT32 mID;
         Vector2 mOffset;

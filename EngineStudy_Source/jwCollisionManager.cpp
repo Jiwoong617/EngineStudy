@@ -148,11 +148,38 @@ namespace jw
         Vector2 leftSize = left->GetSize() * 100.0f;
         Vector2 rightSize = right->GetSize() * 100.0f;
 
-        //AABB 충돌
-        if (fabs(leftPos.x - rightPos.x) < fabs(leftSize.x / 2.0f + rightSize.x / 2.0f)
-            && fabs(leftPos.y - rightPos.y) < fabs(leftSize.y / 2.0f + rightSize.y / 2.0f))
+        //AABB(사각, 사각) 충돌
+        enums::eColliderType leftType = left->GetColliderType();
+        enums::eColliderType rightType = right->GetColliderType();
+
+        if (leftType == enums::eColliderType::Rect2D
+            && rightType == enums::eColliderType::Rect2D)
         {
-            return true;
+            if (fabs(leftPos.x - rightPos.x) < fabs(leftSize.x / 2.0f + rightSize.x / 2.0f)
+                && fabs(leftPos.y - rightPos.y) < fabs(leftSize.y / 2.0f + rightSize.y / 2.0f))
+            {
+                return true;
+            }
+        }
+
+        //원 - 원 충돌
+        if (leftType == enums::eColliderType::Circle2D
+            && rightType == enums::eColliderType::Circle2D)
+        {
+            Vector2 leftCirclePos = leftPos + (leftSize / 2.0f);
+            Vector2 rightCirclePos = rightPos + (rightSize / 2.0f);
+            float distance = (leftCirclePos - rightCirclePos).length();
+            if (distance <= (leftSize.x / 2.0f + rightSize.x / 2.0f))
+            {
+                return true;
+            }
+        }
+
+        //원 - 사각 충돌
+        if ((leftType == enums::eColliderType::Circle2D && rightType == enums::eColliderType::Rect2D)
+            || (leftType == enums::eColliderType::Rect2D && rightType == enums::eColliderType::Circle2D))
+        {
+
         }
 
         return false;

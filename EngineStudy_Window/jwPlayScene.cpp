@@ -42,8 +42,9 @@ namespace jw
         mPlayer = object::Instantiate<Player>(enums::eLayerType::Player);
         PlayerScript* plScript = mPlayer->AddComponent<PlayerScript>();
 
-        //박스 콜라이더
-        BoxCollider2D* collider = mPlayer->AddComponent<BoxCollider2D>();
+        //콜라이더
+        //BoxCollider2D* collider = mPlayer->AddComponent<BoxCollider2D>();
+        CircleCollider2D* collider = mPlayer->AddComponent<CircleCollider2D>();
         collider->SetOffset(Vector2(-50.0f, -50.0));
 
         graphics::Texture* playerTex = Resources::Find<graphics::Texture>(L"Player");
@@ -66,7 +67,7 @@ namespace jw
         graphics::Texture* catTex = Resources::Find<graphics::Texture>(L"Cat");
         Animator* catAnimator = cat->AddComponent<Animator>();
 
-        BoxCollider2D* boxCatCollider = cat->AddComponent<BoxCollider2D>();
+        CircleCollider2D* boxCatCollider = cat->AddComponent<CircleCollider2D>();
         boxCatCollider->SetOffset(Vector2(-50.0f, -50.0f));
 
         /*catAnimator->CreateAnimation(L"DownWalk", catTex
@@ -129,10 +130,11 @@ namespace jw
 
     void PlayScene::OnEnter()
     {
+        Scene::OnEnter();
     }
 
     void PlayScene::OnExit()
     {
-
+        Scene::OnExit();
     }
 }

@@ -3,6 +3,7 @@
 #include "jwTime.h"
 #include "jwSceneManager.h"
 #include "jwResources.h"
+#include "jwCollisionManager.h"
 
 namespace jw
 {
@@ -25,7 +26,6 @@ namespace jw
 		adjustWindowRect(hwnd, width, height);
 		createBuffer(width, height);
 		initializeETC();
-
 	}
 
 	void Application::Run()
@@ -40,12 +40,14 @@ namespace jw
 	{
 		Input::Update();
 		Time::Update();
-		SceneManager::Update();
 
+		CollisionManager::Update();
+		SceneManager::Update();
 	}
 
 	void Application::LateUpdate()
 	{
+		CollisionManager::LateUpdate();
 		SceneManager::LateUpdate();
 	}
 
@@ -54,8 +56,8 @@ namespace jw
 		clearRenderTarget();
 
 		Time::Render(mBackHdc);
+		CollisionManager::Render(mBackHdc);
 		SceneManager::Render(mBackHdc);
-
 
 		copyRenderTarget(mBackHdc, mHdc);
 	}
@@ -73,9 +75,15 @@ namespace jw
 
 	void Application::clearRenderTarget()
 	{
-		//백버퍼 클리어 - 흰색
+		//백버퍼 클리어 - 회색 (이유 : 문제가 생겨 흰색 배경에 흰색이 있으면 안보임)
+		HBRUSH grayBrush = (HBRUSH)CreateSolidBrush(RGB(128, 128, 128));
+		HBRUSH oldBrush = (HBRUSH)SelectObject(mBackHdc, grayBrush);
+
 		//-1, +1을 하는 이유 : 테두리가 잘릴 수 있기 때문에
 		Rectangle(mBackHdc, -1, -1, mWidth + 1, mHeight + 1);
+
+		(HBRUSH)SelectObject(mBackHdc, oldBrush);
+		DeleteObject(grayBrush);
 	}
 
 	void Application::copyRenderTarget(HDC source, HDC dest)
@@ -114,6 +122,8 @@ namespace jw
 	{
 		Input::Initialize();
 		Time::Initialize();
+
+		CollisionManager::Initialize();
 		SceneManager::Initialize();
 	}
 }

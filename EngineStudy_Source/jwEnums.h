@@ -24,9 +24,10 @@ namespace jw::enums
 	enum class eComponentType
 	{
 		Transform,
+		Colider,
+		Script,
 		SpriteRenderer,
 		Animator,
-		Script,
 
 		//카메라는 가장 늦게 업데이트 되어야됨
 		Camera,

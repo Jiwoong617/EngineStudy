@@ -8,6 +8,7 @@
 #include <map>
 #include <functional>
 #include <filesystem>
+#include <bitset>
 
 
 #include <mmsystem.h>

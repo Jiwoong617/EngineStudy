@@ -20,6 +20,8 @@ namespace jw
         virtual void Destroy();
 
         void AddGameObject(GameObject* gameObject);
+        //값이 변경되면 안됨 - const
+        const std::vector<GameObject*> GetGameObjects() { return mGameObjects; }
 
     private:
         void findDeadGameObjects(OUT std::vector<GameObject*>& gameObjs);

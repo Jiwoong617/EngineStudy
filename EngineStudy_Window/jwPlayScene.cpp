@@ -15,6 +15,8 @@
 #include "jwAnimator.h"
 #include "jwCat.h"
 #include "jwCatScript.h"
+#include "jwBoxCollider2D.h"
+#include "jwCollisionManager.h"
 
 
 namespace jw
@@ -29,6 +31,8 @@ namespace jw
 
     void PlayScene::Initialize()
     {
+        CollisionManager::CollisionLayerCheck(eLayerType::Player, eLayerType::Animal, true);
+
         // main camera
         GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::None, Vector2(344.0f, 442.0f));
         Camera* cameraComp = camera->AddComponent<Camera>();
@@ -39,6 +43,9 @@ namespace jw
         //mPlayer->AddComponent<PlayerScript>();
         PlayerScript* plScript = mPlayer->AddComponent<PlayerScript>();
 
+        //박스 콜라이더
+        BoxCollider2D* collider = mPlayer->AddComponent<BoxCollider2D>();
+        collider->SetOffset(Vector2(-50.0f, -50.0));
 
         graphics::Texture* playerTex = Resources::Find<graphics::Texture>(L"Player");
         Animator* playerAnimator = mPlayer->AddComponent<Animator>();
@@ -53,14 +60,16 @@ namespace jw
 
         mPlayer->GetComponent<Transform>()->SetPosition(Vector2(100.0f, 100.0f));
 
-        ///cat
-        //Cat* cat = object::Instantiate<Cat>(enums::eLayerType::Animal);
-        //cat->AddComponent<CatScript>();
+        //cat
+        Cat* cat = object::Instantiate<Cat>(enums::eLayerType::Animal);
+        cat->AddComponent<CatScript>();
 
-        ////cameraComp->SetTarget(cat);
+        graphics::Texture* catTex = Resources::Find<graphics::Texture>(L"Cat");
+        Animator* catAnimator = cat->AddComponent<Animator>();
 
-        //graphics::Texture* catTex = Resources::Find<graphics::Texture>(L"Cat");
-        //Animator* catAnimator = cat->AddComponent<Animator>();
+        BoxCollider2D* boxCatCollider = cat->AddComponent<BoxCollider2D>();
+        boxCatCollider->SetOffset(Vector2(-50.0f, -50.0f));
+
         /*catAnimator->CreateAnimation(L"DownWalk", catTex
             , Vector2(0.0f, 0.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
         catAnimator->CreateAnimation(L"RightWalk", catTex
@@ -77,13 +86,14 @@ namespace jw
             , Vector2(0.0f, 192.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
 
         catAnimator->PlayAnimation(L"SitDown", false);*/
-        //catAnimator->CreateAnimationByFolder(L"MushroomIdle", L"..\\Resources\\Mushroom", Vector2::Zero, 0.1f);
+        catAnimator->CreateAnimationByFolder(L"MushroomIdle", L"..\\Resources\\Mushroom", Vector2::Zero, 0.1f);
 
-        //catAnimator->PlayAnimation(L"MushroomIdle", true);
+        catAnimator->PlayAnimation(L"MushroomIdle", true);
 
-        //cat->GetComponent<Transform>()->SetPosition(Vector2(200.0f, 200.0f));
-        //cat->GetComponent<Transform>()->SetScale(Vector2(2.0f, 2.0f));
+        cat->GetComponent<Transform>()->SetPosition(Vector2(200.0f, 200.0f));
+        cat->GetComponent<Transform>()->SetScale(Vector2(1.0f, 1.0f));
         
+        //cameraComp->SetTarget(cat);
 
         //bg
         //GameObject* bg = object::Instantiate<GameObject>(enums::eLayerType::Player);

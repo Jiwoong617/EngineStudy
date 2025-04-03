@@ -16,9 +16,13 @@
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)jwAnimation.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)jwAnimator.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)jwBoxCollider2D.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)jwCamera.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)engineApplication.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)jwCircleCollider2D.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)jwCollider.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)jwCollisionManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)jwEnums.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)jwComponent.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)jwEntity.h" />
@@ -41,8 +45,12 @@
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)jwAnimation.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)jwAnimator.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)jwBoxCollider2D.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)jwCamera.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)engineApplication.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)jwCircleCollider2D.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)jwCollider.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)jwCollisionManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)jwComponent.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)jwEntity.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)jwGameObject.cpp" />

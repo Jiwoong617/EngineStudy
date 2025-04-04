@@ -40,6 +40,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)jwScript.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)jwSpriteRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)jwTexture.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)jwTilemapRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)jwTime.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)jwTransform.h" />
   </ItemGroup>
@@ -68,6 +69,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)jwScript.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)jwSpriteRenderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)jwTexture.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)jwTilemapRenderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)jwTime.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)jwTransform.cpp" />
   </ItemGroup>

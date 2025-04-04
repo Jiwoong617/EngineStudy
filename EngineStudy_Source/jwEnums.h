@@ -6,6 +6,8 @@ namespace jw::enums
 	{
 		None,
 		BackGround,
+		Tile,
+
 		Animal,
 		Player,
 		Particle,

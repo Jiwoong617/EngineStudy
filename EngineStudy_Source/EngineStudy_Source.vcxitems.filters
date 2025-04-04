@@ -77,6 +77,9 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)jwDontDestroyOnLoad.cpp">
       <Filter>Scene\DontDestroy</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)jwTilemapRenderer.cpp">
+      <Filter>Component\TileMap</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
@@ -159,6 +162,9 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)jwDontDestroyOnLoad.h">
       <Filter>Scene\DontDestroy</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)jwTilemapRenderer.h">
+      <Filter>Component\TileMap</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Component">
@@ -205,6 +211,9 @@
     </Filter>
     <Filter Include="Scene\DontDestroy">
       <UniqueIdentifier>{89b2c49f-ad23-4b66-b4f7-16b1f06933f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\TileMap">
+      <UniqueIdentifier>{71043df7-c653-41c5-9197-080ea1c1bf32}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

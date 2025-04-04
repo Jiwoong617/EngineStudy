@@ -143,7 +143,9 @@
     <ClInclude Include="jwPlayer.h" />
     <ClInclude Include="jwPlayerScript.h" />
     <ClInclude Include="jwPlayScene.h" />
+    <ClInclude Include="jwTile.h" />
     <ClInclude Include="jwTitleScene.h" />
+    <ClInclude Include="jwToolScene.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="jwCat.cpp" />
@@ -151,7 +153,9 @@
     <ClCompile Include="jwPlayer.cpp" />
     <ClCompile Include="jwPlayerScript.cpp" />
     <ClCompile Include="jwPlayScene.cpp" />
+    <ClCompile Include="jwTile.cpp" />
     <ClCompile Include="jwTitleScene.cpp" />
+    <ClCompile Include="jwToolScene.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

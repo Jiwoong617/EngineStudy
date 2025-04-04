@@ -14,7 +14,9 @@ namespace jw::object
 
 namespace jw
 {
-	GameObject::GameObject() : mState(eState::Active)
+	GameObject::GameObject()
+		: mState(eState::Active)
+		, mLayerType(eLayerType::None)
 	{
 		mComponents.resize((UINT)enums::eComponentType::End);
 		initializeTransform();

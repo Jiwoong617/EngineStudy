@@ -74,6 +74,9 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)jwObject.cpp">
       <Filter>Object</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)jwDontDestroyOnLoad.cpp">
+      <Filter>Scene\DontDestroy</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
@@ -153,6 +156,9 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)jwCollisionManager.h">
       <Filter>Component\Collider</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)jwDontDestroyOnLoad.h">
+      <Filter>Scene\DontDestroy</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Component">
@@ -196,6 +202,9 @@
     </Filter>
     <Filter Include="Component\Collider">
       <UniqueIdentifier>{18763317-2379-4320-baf1-4813598ec8c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\DontDestroy">
+      <UniqueIdentifier>{89b2c49f-ad23-4b66-b4f7-16b1f06933f0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

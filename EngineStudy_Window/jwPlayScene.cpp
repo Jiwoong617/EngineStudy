@@ -40,6 +40,8 @@ namespace jw
 
         //player
         mPlayer = object::Instantiate<Player>(enums::eLayerType::Player);
+		object::DontDestroyOnLoad(mPlayer);
+        
         PlayerScript* plScript = mPlayer->AddComponent<PlayerScript>();
 
         //콜라이더

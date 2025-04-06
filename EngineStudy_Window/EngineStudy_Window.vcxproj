@@ -136,6 +136,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="jwCameraScript.h" />
     <ClInclude Include="jwCat.h" />
     <ClInclude Include="jwCatScript.h" />
     <ClInclude Include="jwLoadResources.h" />
@@ -148,6 +149,7 @@
     <ClInclude Include="jwToolScene.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="jwCameraScript.cpp" />
     <ClCompile Include="jwCat.cpp" />
     <ClCompile Include="jwCatScript.cpp" />
     <ClCompile Include="jwPlayer.cpp" />

@@ -1,5 +1,6 @@
 #pragma once
 #include "..\\EngineStudy_Source\\jwScene.h"
+#include "jwTile.h"
 
 namespace jw
 {
@@ -17,7 +18,11 @@ namespace jw
         void OnEnter() override;
         void OnExit()  override;
 
+        void Save();
+		void Load();
 
+	private:
+		std::vector<Tile*> mTiles;
     };
 }
 

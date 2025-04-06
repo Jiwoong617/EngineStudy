@@ -1,18 +1,19 @@
 #pragma once
-#include "..\\EngineStudy_Source\\jwGameObject.h"
+#include "..\\EngineStudy_Source\\jwScript.h"
+#include "..\\EngineStudy_Source\\jwTransform.h"
 
 namespace jw
 {
-
-    class Tile : public GameObject
+    class CameraScript : public Script
     {
     public:
+        CameraScript();
+        ~CameraScript();
+
         void Initialize() override;
         void Update() override;
         void LateUpdate() override;
         void Render(HDC hdc) override;
-
-        void SetIndexPosition(int x, int y);
 
     private:
 

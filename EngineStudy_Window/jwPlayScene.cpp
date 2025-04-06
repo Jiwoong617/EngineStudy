@@ -17,6 +17,8 @@
 #include "jwCatScript.h"
 #include "jwBoxCollider2D.h"
 #include "jwCollisionManager.h"
+#include "jwTile.h"
+#include "jwTilemapRenderer.h"
 
 
 namespace jw
@@ -31,6 +33,8 @@ namespace jw
 
     void PlayScene::Initialize()
     {
+        loadTilemap();
+
         CollisionManager::CollisionLayerCheck(eLayerType::Player, eLayerType::Animal, true);
 
         // main camera
@@ -138,5 +142,42 @@ namespace jw
     void PlayScene::OnExit()
     {
         Scene::OnExit();
+    }
+
+    void PlayScene::loadTilemap()
+    {
+        FILE* pFile = nullptr;
+        errno_t err = _wfopen_s(&pFile, L"..\\Resources\\myTest", L"rb");
+        if (err != 0 || pFile == nullptr)
+        {
+            // 파일 열기에 실패했을 때의 처리 (에러 메시지 출력 등)
+            MessageBox(NULL, L"파일 열기에 실패했습니다.", L"Error", MB_OK | MB_ICONERROR);
+            return;
+        }
+
+        while (true)
+        {
+            int idxX = 0;
+            int idxY = 0;
+
+            int posX = 0;
+            int posY = 0;
+
+            if (fread(&idxX, sizeof(int), 1, pFile) == NULL)
+                break;
+            if (fread(&idxY, sizeof(int), 1, pFile) == NULL)
+                break;
+            if (fread(&posX, sizeof(int), 1, pFile) == NULL)
+                break;
+            if (fread(&posY, sizeof(int), 1, pFile) == NULL)
+                break;
+
+            Tile* tile = object::Instantiate<Tile>(eLayerType::Tile, Vector2(posX, posY));
+            TilemapRenderer* tmr = tile->AddComponent<TilemapRenderer>();
+            tmr->SetTexture(Resources::Find<graphics::Texture>(L"SpringFloor"));
+            tmr->SetIndex(Vector2(idxX, idxY));
+        }
+
+        fclose(pFile);
     }
 }

@@ -19,6 +19,9 @@ namespace jw
         void OnExit()  override;
 
     private:
+		void loadTilemap();
+
+    private:
         class Player* mPlayer;
     };
 }

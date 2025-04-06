@@ -22,12 +22,14 @@
     <Filter Include="Tile">
       <UniqueIdentifier>{a1059070-56ff-4320-9dd6-1e2a61ba43ed}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Camera">
+      <UniqueIdentifier>{72dac4a6-7436-4b42-811d-2dc0337f0f3b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="jwLoadScene.h">
       <Filter>Scene</Filter>
     </ClInclude>
-    <ClInclude Include="jwLoadResources.h" />
     <ClInclude Include="jwPlayer.h">
       <Filter>Player</Filter>
     </ClInclude>
@@ -52,6 +54,10 @@
     <ClInclude Include="jwTile.h">
       <Filter>Tile</Filter>
     </ClInclude>
+    <ClInclude Include="jwCameraScript.h">
+      <Filter>Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="jwLoadResources.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="jwPlayer.cpp">
@@ -77,6 +83,9 @@
     </ClCompile>
     <ClCompile Include="jwTile.cpp">
       <Filter>Tile</Filter>
+    </ClCompile>
+    <ClCompile Include="jwCameraScript.cpp">
+      <Filter>Camera</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

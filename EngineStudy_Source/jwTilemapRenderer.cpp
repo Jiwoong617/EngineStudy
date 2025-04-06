@@ -6,17 +6,24 @@
 
 namespace jw
 {
+    Vector2 TilemapRenderer::TileSize = Vector2::One;
+    Vector2 TilemapRenderer::OriginTileSize = Vector2::One;
+    Vector2 TilemapRenderer::SelectedIndex = Vector2(-1.0f, -1.0f);
+
     TilemapRenderer::TilemapRenderer()
         : Component(enums::eComponentType::SpriteRenderer)
         , mTexture(nullptr)
         , mSize(3.0f, 3.0f)
-        , mIndex(8, 7)
+        , mIndex(0, 0)
         , mTileSize(16.0f, 16.0f)
     {
+        TileSize = mTileSize * mSize;
+        OriginTileSize = mTileSize;
     }
     TilemapRenderer::~TilemapRenderer()
     {
     }
+
     void TilemapRenderer::Initialize()
     {
 

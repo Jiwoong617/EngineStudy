@@ -35,6 +35,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)jwRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)jwResource.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)jwResources.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)jwRigidbody.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)jwScene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)jwSceneManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)jwScript.h" />
@@ -64,6 +65,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)jwRenderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)jwResource.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)jwResources.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)jwRigidbody.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)jwScene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)jwSceneManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)jwScript.cpp" />

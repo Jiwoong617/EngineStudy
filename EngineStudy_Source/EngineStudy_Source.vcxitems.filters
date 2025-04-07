@@ -80,6 +80,9 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)jwTilemapRenderer.cpp">
       <Filter>Component\TileMap</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)jwRigidbody.cpp">
+      <Filter>Component\RigidBody</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
@@ -165,6 +168,9 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)jwTilemapRenderer.h">
       <Filter>Component\TileMap</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)jwRigidbody.h">
+      <Filter>Component\RigidBody</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Component">
@@ -214,6 +220,9 @@
     </Filter>
     <Filter Include="Component\TileMap">
       <UniqueIdentifier>{71043df7-c653-41c5-9197-080ea1c1bf32}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\RigidBody">
+      <UniqueIdentifier>{f96539e7-c8b1-4887-b1e7-0aae5bcdd6f4}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

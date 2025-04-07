@@ -16,9 +16,13 @@
 #include "jwCat.h"
 #include "jwCatScript.h"
 #include "jwBoxCollider2D.h"
+#include "jwCircleCollider2D.h"
 #include "jwCollisionManager.h"
 #include "jwTile.h"
 #include "jwTilemapRenderer.h"
+#include "jwRigidbody.h"
+#include "jwFloor.h"
+#include "jwFloorScript.h"
 
 
 namespace jw
@@ -35,8 +39,6 @@ namespace jw
     {
         loadTilemap();
 
-        CollisionManager::CollisionLayerCheck(eLayerType::Player, eLayerType::Animal, true);
-
         // main camera
         GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::None, Vector2(344.0f, 442.0f));
         Camera* cameraComp = camera->AddComponent<Camera>();
@@ -49,8 +51,8 @@ namespace jw
         PlayerScript* plScript = mPlayer->AddComponent<PlayerScript>();
 
         //콜라이더
-        //BoxCollider2D* collider = mPlayer->AddComponent<BoxCollider2D>();
-        CircleCollider2D* collider = mPlayer->AddComponent<CircleCollider2D>();
+        BoxCollider2D* collider = mPlayer->AddComponent<BoxCollider2D>();
+        //CircleCollider2D* collider = mPlayer->AddComponent<CircleCollider2D>();
         collider->SetOffset(Vector2(-50.0f, -50.0));
 
         graphics::Texture* playerTex = Resources::Find<graphics::Texture>(L"Player");
@@ -65,6 +67,14 @@ namespace jw
         playerAnimator->GetCompleteEvent(L"FrontGiveWater") = std::bind(&PlayerScript::AttackEffect, plScript);
 
         mPlayer->GetComponent<Transform>()->SetPosition(Vector2(100.0f, 100.0f));
+        mPlayer->AddComponent<Rigidbody>();
+
+        //floor
+        Floor* floor = object::Instantiate<Floor>(eLayerType::Floor, Vector2(100.0f, 600.0f));
+        floor->SetName(L"Floor");
+        BoxCollider2D* floorCol = floor->AddComponent<BoxCollider2D>();
+        floorCol->SetSize(Vector2(3.0f, 1.0f));
+        floor->AddComponent<FloorScript>();
 
         //cat
         Cat* cat = object::Instantiate<Cat>(enums::eLayerType::Animal);
@@ -137,6 +147,9 @@ namespace jw
     void PlayScene::OnEnter()
     {
         Scene::OnEnter();
+
+		CollisionManager::CollisionLayerCheck(eLayerType::Player, eLayerType::Animal, true);
+        CollisionManager::CollisionLayerCheck(eLayerType::Player, eLayerType::Floor, true);
     }
 
     void PlayScene::OnExit()

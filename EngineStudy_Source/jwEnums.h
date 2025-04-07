@@ -10,6 +10,7 @@ namespace jw::enums
 
 		Animal,
 		Player,
+		Floor,
 		Particle,
 		Max = 16,
 	};
@@ -27,6 +28,7 @@ namespace jw::enums
 	{
 		Transform,
 		Colider,
+		Rigidbody,
 		Script,
 		SpriteRenderer,
 		Animator,

@@ -25,6 +25,9 @@
     <Filter Include="Camera">
       <UniqueIdentifier>{72dac4a6-7436-4b42-811d-2dc0337f0f3b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Floor">
+      <UniqueIdentifier>{023cab0d-31b0-41fb-8eed-6bc7b9a65192}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="jwLoadScene.h">
@@ -58,6 +61,12 @@
       <Filter>Camera</Filter>
     </ClInclude>
     <ClInclude Include="jwLoadResources.h" />
+    <ClInclude Include="jwFloor.h">
+      <Filter>Floor</Filter>
+    </ClInclude>
+    <ClInclude Include="jwFloorScript.h">
+      <Filter>Floor</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="jwPlayer.cpp">
@@ -86,6 +95,12 @@
     </ClCompile>
     <ClCompile Include="jwCameraScript.cpp">
       <Filter>Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="jwFloor.cpp">
+      <Filter>Floor</Filter>
+    </ClCompile>
+    <ClCompile Include="jwFloorScript.cpp">
+      <Filter>Floor</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

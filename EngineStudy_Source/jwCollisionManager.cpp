@@ -36,6 +36,13 @@ namespace jw
     {
     }
 
+    void CollisionManager::Clear()
+    {
+		//충돌 정보 초기화
+        mCollisionMap.clear();
+        mCollisionLayerMatrix->reset();
+    }
+
     //어떤 레이어들 간에 충돌을 할 건지
     void CollisionManager::CollisionLayerCheck(eLayerType left, eLayerType right, bool enable)
     {
@@ -59,8 +66,8 @@ namespace jw
     void CollisionManager::LayerCollision(Scene* scene, eLayerType left, eLayerType right)
     {
         //scene 의 레이어 내부의 게임옵젝 가져오기
-        const std::vector<GameObject*>& lefts = scene->GetLayer(left)->GetGameObjects();
-        const std::vector<GameObject*>& rights = scene->GetLayer(right)->GetGameObjects();
+        const std::vector<GameObject*>& lefts = SceneManager::GetGameObjects(left);
+        const std::vector<GameObject*>& rights = SceneManager::GetGameObjects(right);
 
         //두 게임옵젝 충돌 처리
         for (GameObject* left : lefts)

@@ -61,4 +61,16 @@ namespace jw
 
 		return mActiveScene;
 	}
+
+	std::vector<GameObject*> SceneManager::GetGameObjects(eLayerType layer)
+	{
+		//DontDestroyOnLoad의 레이어와 현재 Scene의 레이어의 게임오브젝트들을 합쳐서 반환
+		//충돌처리 하기위해
+		std::vector<GameObject*> gameObjects = mActiveScene->GetLayer(layer)->GetGameObjects();
+		std::vector<GameObject*> dontDestroyOnLoad = mDontDestroyOnLoad->GetLayer(layer)->GetGameObjects();
+
+		gameObjects.insert(gameObjects.end(), dontDestroyOnLoad.begin(), dontDestroyOnLoad.end());
+
+		return gameObjects;
+	}
 }

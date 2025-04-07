@@ -1,4 +1,5 @@
 #include "jwScene.h"
+#include "jwCollisionManager.h"
 
 namespace jw
 {
@@ -98,6 +99,6 @@ namespace jw
 
 	void Scene::OnExit()
 	{
-
+		CollisionManager::Clear();
 	}
 }

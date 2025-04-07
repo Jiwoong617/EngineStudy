@@ -10,7 +10,7 @@ namespace jw::object
 
 namespace jw
 {
-	class GameObject
+	class GameObject : public Entity
 	{
 	public:
 		friend void object::Destroy(GameObject* obj);

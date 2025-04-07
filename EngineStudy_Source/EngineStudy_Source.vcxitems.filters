@@ -83,6 +83,18 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)jwRigidbody.cpp">
       <Filter>Component\RigidBody</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)jwUIManager.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)jwUIBase.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)jwUIButton.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)jwUIHUD.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
@@ -171,6 +183,18 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)jwRigidbody.h">
       <Filter>Component\RigidBody</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)jwUIManager.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)jwUIBase.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)jwUIHUD.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)jwUIButton.h">
+      <Filter>UI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Component">
@@ -223,6 +247,9 @@
     </Filter>
     <Filter Include="Component\RigidBody">
       <UniqueIdentifier>{f96539e7-c8b1-4887-b1e7-0aae5bcdd6f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI">
+      <UniqueIdentifier>{02ce0a69-f241-478e-a18a-f088ebb9fb46}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

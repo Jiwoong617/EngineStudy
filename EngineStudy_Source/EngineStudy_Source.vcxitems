@@ -44,6 +44,10 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)jwTilemapRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)jwTime.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)jwTransform.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)jwUIBase.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)jwUIButton.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)jwUIHUD.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)jwUIManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)jwAnimation.cpp" />
@@ -74,5 +78,9 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)jwTilemapRenderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)jwTime.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)jwTransform.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)jwUIBase.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)jwUIButton.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)jwUIHUD.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)jwUIManager.cpp" />
   </ItemGroup>
 </Project>

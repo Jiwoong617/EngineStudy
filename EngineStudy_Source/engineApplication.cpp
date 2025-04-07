@@ -4,6 +4,7 @@
 #include "jwSceneManager.h"
 #include "jwResources.h"
 #include "jwCollisionManager.h"
+#include "jwUIManager.h"
 
 namespace jw
 {
@@ -42,12 +43,14 @@ namespace jw
 		Time::Update();
 
 		CollisionManager::Update();
+		UIManager::Update();
 		SceneManager::Update();
 	}
 
 	void Application::LateUpdate()
 	{
 		CollisionManager::LateUpdate();
+		UIManager::LateUpdate();
 		SceneManager::LateUpdate();
 	}
 
@@ -57,6 +60,7 @@ namespace jw
 
 		Time::Render(mBackHdc);
 		CollisionManager::Render(mBackHdc);
+		UIManager::Render(mBackHdc);
 		SceneManager::Render(mBackHdc);
 
 		copyRenderTarget(mBackHdc, mHdc);
@@ -70,6 +74,7 @@ namespace jw
 	void Application::Release()
 	{
 		SceneManager::Release();
+		UIManager::Release();
 		Resources::Release();
 	}
 
@@ -124,6 +129,7 @@ namespace jw
 		Time::Initialize();
 
 		CollisionManager::Initialize();
+		UIManager::Initialize();
 		SceneManager::Initialize();
 	}
 }

@@ -9,7 +9,7 @@
 #include "jwObject.h"
 #include "jwResources.h"
 #include "jwRigidbody.h"
-
+#include "jwUIManager.h"
 
 namespace jw
 {
@@ -165,6 +165,10 @@ namespace jw
 			mState = PlayerScript::eState::Walk;
 		if (Input::GetKey(eKeyCode::Q)) //มกวม
 			mState = PlayerScript::eState::Walk;
+		if (Input::GetKeyDown(eKeyCode::I))
+			UIManager::Push(eUIType::HpBar);
+		if (Input::GetKeyDown(eKeyCode::O))
+			UIManager::Pop(eUIType::HpBar);
 	}
 
 	void PlayerScript::move()

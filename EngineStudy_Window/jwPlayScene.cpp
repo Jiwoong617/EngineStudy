@@ -23,6 +23,7 @@
 #include "jwRigidbody.h"
 #include "jwFloor.h"
 #include "jwFloorScript.h"
+#include "jwUIManager.h"
 
 
 namespace jw
@@ -150,10 +151,16 @@ namespace jw
 
 		CollisionManager::CollisionLayerCheck(eLayerType::Player, eLayerType::Animal, true);
         CollisionManager::CollisionLayerCheck(eLayerType::Player, eLayerType::Floor, true);
+    
+        //test
+        UIManager::Push(eUIType::Button);
     }
 
     void PlayScene::OnExit()
     {
+        //test
+        UIManager::Pop(eUIType::Button);
+
         Scene::OnExit();
     }
 

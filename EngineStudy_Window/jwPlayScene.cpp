@@ -52,6 +52,8 @@ namespace jw
 		object::DontDestroyOnLoad(mPlayer);
         
         PlayerScript* plScript = mPlayer->AddComponent<PlayerScript>();
+        plScript->SetPixelMapTexture(Resources::Find<graphics::Texture>(L"PixelMap"));
+
         mPlayer->AddComponent<AudioListener>();
 
         //콜라이더
@@ -74,11 +76,13 @@ namespace jw
         mPlayer->AddComponent<Rigidbody>();
 
         //floor
-        Floor* floor = object::Instantiate<Floor>(eLayerType::Floor, Vector2(100.0f, 600.0f));
+        Floor* floor = object::Instantiate<Floor>(eLayerType::Floor, Vector2(0.0f, 0.0f));
         floor->SetName(L"Floor");
-        BoxCollider2D* floorCol = floor->AddComponent<BoxCollider2D>();
-        floorCol->SetSize(Vector2(3.0f, 1.0f));
-        floor->AddComponent<FloorScript>();
+        SpriteRenderer* floorSR = floor->AddComponent<SpriteRenderer>();
+        floorSR->SetTexture(Resources::Find<graphics::Texture>(L"PixelMap"));
+        //BoxCollider2D* floorCol = floor->AddComponent<BoxCollider2D>();
+        //floorCol->SetSize(Vector2(3.0f, 1.0f));
+        //floor->AddComponent<FloorScript>();
 
         AudioSource* as = floor->AddComponent<AudioSource>();
         AudioClip* ac = Resources::Load<AudioClip>(L"BGSound", L"..\\Resources\\Sound\\smw_bonus_game_end.wav");

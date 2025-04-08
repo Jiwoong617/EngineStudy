@@ -31,6 +31,8 @@ namespace jw::graphics
         Gdiplus::Image* GetImage() { return mImage; }
         bool IsAlpha() { return mbAlpha; }
 
+        COLORREF GetPixel(int x, int y);
+
     private:
         bool mbAlpha;
         eTextureType mType;

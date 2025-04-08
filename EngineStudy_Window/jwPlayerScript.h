@@ -1,6 +1,6 @@
 #pragma once
 #include "..\\EngineStudy_Source\\jwScript.h"
-
+#include "..\\EngineStudy_Source\\jwTexture.h"
 
 namespace jw
 {
@@ -29,6 +29,7 @@ namespace jw
         void OnCollisionExit(Collider* other) override;
 
         void AttackEffect();
+        void SetPixelMapTexture(graphics::Texture* texture) { mPixelMap = texture; }
 
     private:
         void idle();
@@ -38,5 +39,7 @@ namespace jw
     private:
         eState mState;
         class Animator* mAnimator;
+
+        graphics::Texture* mPixelMap;
     };
 }

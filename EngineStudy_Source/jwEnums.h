@@ -35,6 +35,8 @@ namespace jw::enums
 
 		//카메라는 가장 늦게 업데이트 되어야됨
 		Camera,
+		AudioListener,
+		AudioSource,
 		End,
 	};
 

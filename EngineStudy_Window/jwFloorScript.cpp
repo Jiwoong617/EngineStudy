@@ -2,6 +2,7 @@
 #include "jwTransform.h"
 #include "jwGameObject.h"
 #include "jwRigidbody.h"
+#include "jwAudioSource.h"
 
 namespace jw
 {
@@ -48,6 +49,10 @@ namespace jw
 
             playerTr->SetPosition(playerPos);
         }
+
+        AudioSource* as = GetOwner()->GetComponent<AudioSource>();
+        as->SetLoop(false);
+        as->Play();
 
         playerRb->SetGround(true);
     }

@@ -16,6 +16,9 @@
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)jwAnimation.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)jwAnimator.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)jwAudioClip.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)jwAudioListener.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)jwAudioSource.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)jwBoxCollider2D.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)jwCamera.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
@@ -27,6 +30,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)jwEnums.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)jwComponent.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)jwEntity.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)jwFmod.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)jwGameObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)jwInput.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)jwLayer.h" />
@@ -52,6 +56,9 @@
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)jwAnimation.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)jwAnimator.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)jwAudioClip.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)jwAudioListener.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)jwAudioSource.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)jwBoxCollider2D.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)jwCamera.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)engineApplication.cpp" />
@@ -61,6 +68,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)jwComponent.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)jwDontDestroyOnLoad.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)jwEntity.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)jwFmod.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)jwGameObject.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)jwInput.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)jwLayer.cpp" />

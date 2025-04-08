@@ -5,6 +5,7 @@
 #include "jwResources.h"
 #include "jwCollisionManager.h"
 #include "jwUIManager.h"
+#include "jwFmod.h"
 
 namespace jw
 {
@@ -128,6 +129,7 @@ namespace jw
 		Input::Initialize();
 		Time::Initialize();
 
+		Fmod::Initialize();
 		CollisionManager::Initialize();
 		UIManager::Initialize();
 		SceneManager::Initialize();

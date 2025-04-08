@@ -24,7 +24,9 @@
 #include "jwFloor.h"
 #include "jwFloorScript.h"
 #include "jwUIManager.h"
-
+#include "jwAudioClip.h"
+#include "jwAudioListener.h"
+#include "jwAudioSource.h"
 
 namespace jw
 {
@@ -50,6 +52,7 @@ namespace jw
 		object::DontDestroyOnLoad(mPlayer);
         
         PlayerScript* plScript = mPlayer->AddComponent<PlayerScript>();
+        mPlayer->AddComponent<AudioListener>();
 
         //콜라이더
         BoxCollider2D* collider = mPlayer->AddComponent<BoxCollider2D>();
@@ -76,6 +79,10 @@ namespace jw
         BoxCollider2D* floorCol = floor->AddComponent<BoxCollider2D>();
         floorCol->SetSize(Vector2(3.0f, 1.0f));
         floor->AddComponent<FloorScript>();
+
+        AudioSource* as = floor->AddComponent<AudioSource>();
+        AudioClip* ac = Resources::Load<AudioClip>(L"BGSound", L"..\\Resources\\Sound\\smw_bonus_game_end.wav");
+        as->SetClip(ac);
 
         //cat
         Cat* cat = object::Instantiate<Cat>(enums::eLayerType::Animal);

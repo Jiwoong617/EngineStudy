@@ -95,6 +95,18 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)jwUIHUD.cpp">
       <Filter>UI</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)jwFmod.cpp">
+      <Filter>Audio\Fmod</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)jwAudioClip.cpp">
+      <Filter>Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)jwAudioListener.cpp">
+      <Filter>Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)jwAudioSource.cpp">
+      <Filter>Audio</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
@@ -195,6 +207,18 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)jwUIButton.h">
       <Filter>UI</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)jwFmod.h">
+      <Filter>Audio\Fmod</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)jwAudioClip.h">
+      <Filter>Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)jwAudioListener.h">
+      <Filter>Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)jwAudioSource.h">
+      <Filter>Audio</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Component">
@@ -250,6 +274,12 @@
     </Filter>
     <Filter Include="UI">
       <UniqueIdentifier>{02ce0a69-f241-478e-a18a-f088ebb9fb46}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Audio">
+      <UniqueIdentifier>{b36ca3ef-f41a-4bfc-adee-d36d504d9729}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Audio\Fmod">
+      <UniqueIdentifier>{fe410db1-14b6-4278-b244-aadad20e6473}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
